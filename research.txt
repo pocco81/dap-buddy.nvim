@@ -1,0 +1,24 @@
+
+
+The idea of this plugin is for it to manage debuggers for several programming lenguages that nvim-dap supports. The plugin must be able to:
+
+	1. Install debuggers
+	2. Uninstall debuggers
+	3. List debuggers (?)
+
+
+For that it will have these commands:
+
+	1. DIInstall <debugger>
+	2. DIUninstall <debugger>
+	3. DIList
+
+
+
+Things to evaluate:
+	+ Since there is no way to "grab default configs", there should be a directory that holds all the configs.
+	+ There should be list with the available debuggers
+	+ There should be a setup() func to load the configs for each server
+		+,i0 Setup will check if the config dir exists, else create it
+	+ There should be a config({}) func to configure stuff for any given server
+		+,i1 Config will configure a debugger
