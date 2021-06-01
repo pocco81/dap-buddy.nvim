@@ -43,8 +43,8 @@ function M.install_debugger(debugger)
 
         cmd("echo 'Installing Debugger " .. debugger .. "'")
         cmd("echo 'Installer before cmd = " .. dbg.installer["before"] .. "'")
-        cmd("echo 'Installer after cmd = '" .. dbg.installer["after"] .. "'")
-        cmd("echo 'Installation path = '" .. dbg_path .. "'")
+        cmd("echo 'Installer after cmd = " .. dbg.installer["after"] .. "'")
+        cmd("echo 'Installation path = " .. dbg_path .. "'")
         cmd("echo ''")
     else
         cmd("echo 'DAPInstall: the debugger " .. debugger .. " does not exist/support is under development'")
