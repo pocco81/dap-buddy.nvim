@@ -14,20 +14,20 @@ endfunction
 " }}}
 
 " Test Availability {{{
-function! dicmds#available_args() abort
+function! dicmds#available_args_install() abort
 	return luaeval('require("dap-install.debuggers_list").available_commands()')
 endfunction
 " }}}
 
 " Tab Completion {{{
-function! s:complete_args_tool_highlight(arg, line, pos) abort
-	return join(dicmds#available_args(), "\n")
+function! s:complete_args_install(arg, line, pos) abort
+	return join(dicmds#available_args_install(), "\n")
 endfunction
 " }}}
 
 
 " Interface {{{
-command! -nargs=* -complete=custom,s:complete_smth DIInstall call v:lua.require("dap-install.main").main(0,dicmds#get_first_arg(<f-args>))
+command! -nargs=* -complete=custom,s:complete_args_install DIInstall call v:lua.require("dap-install.main").main(0,dicmds#get_first_arg(<f-args>))
 " command! -nargs=* -complete=custom,s:complete_smth DIUninstall call v:lua.require("dap-install.main").main(1,dicmds#get_first_arg(<f-args>))
 " command! DIList call v:lua.require("dap-install.main").main(0,dicmds#get_first_arg(<f-args>))
 " }}}
