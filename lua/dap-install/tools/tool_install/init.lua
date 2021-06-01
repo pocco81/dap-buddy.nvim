@@ -32,15 +32,22 @@ function M.install_debugger(debugger)
             print("Successfully installed " .. debugger .. " language server!")
         end
 
-        -- local dbg = require(dbg_list[debugger])
+        local dbg = require(dbg_list[debugger][1])
+		local dbg_path = dbg_list[debugger][2]
+
+        -- cmd("echo 'Installing Debugger " .. debugger .. "'")
+        -- cmd("echo 'Installer before cmd = " .. require(dbg_list[debugger][1]).installer["before"] .. "'")
+        -- cmd("echo 'Installer after cmd = '" .. require(dbg_list[debugger][1]).installer["after"] .. "'")
+        -- cmd("echo 'Installation path = '" .. require(dbg_list[debugger][2]) .. "'")
+        -- cmd("echo ''")
 
         cmd("echo 'Installing Debugger " .. debugger .. "'")
-        cmd("echo 'Installer before cmd = " .. require(dbg_list[debugger][1]).installer["before"] .. "'")
-        cmd("echo 'Installer after cmd = '" .. require(dbg_list[debugger][1]).installer["after"] .. "'")
-        cmd("echo 'Installation path = '" .. require(dbg_list[debugger][2]) .. "'")
+        cmd("echo 'Installer before cmd = " .. dbg.installer["before"] .. "'")
+        cmd("echo 'Installer after cmd = '" .. dbg.installer["after"] .. "'")
+        cmd("echo 'Installation path = '" .. dbg_path .. "'")
         cmd("echo ''")
     else
-        cmd("echo 'DAPInstall: the debugger " .. debugger .. " does not exist'")
+        cmd("echo 'DAPInstall: the debugger " .. debugger .. " does not exist/support is under development'")
     end
 end
 
