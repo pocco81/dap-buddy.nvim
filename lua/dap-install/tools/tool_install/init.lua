@@ -9,7 +9,7 @@ local utils_paths = require("dap-install.utils.paths.init")
 local dbg_list = require("dap-install.debuggers_list").debuggers
 
 function M.install_debugger(debugger)
-    if utils_tbl.tbl_has_element(dbg_list, debugger) then
+    if not utils_tbl.tbl_has_element(dbg_list, debugger) then
         --         cmd("new")
         --         local shell = o.shell
         --         o.shell = "/bin/bash"
