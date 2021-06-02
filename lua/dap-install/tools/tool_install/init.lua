@@ -17,7 +17,7 @@ function M.install_debugger(debugger)
         local dbg = require(dbg_list[debugger][1])
         local dbg_path = dbg_list[debugger][2]
 
-        if not (utils_paths.assert_dir(dbg_list[debugger]) == 1) then
+        if not (utils_paths.assert_dir(dbg_path) == 1) then
             fn.mkdir("" .. dbg_list[debugger] .. "", "p")
         end
 
