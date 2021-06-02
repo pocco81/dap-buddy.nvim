@@ -39,6 +39,7 @@ M.config = {
 M.installer = {
 	before = [[cd ]]..opts.installation_path..[[]],
 	after = [[
+		echo "pwd = `pwd`"
 		cd debugpy/
 		python -m venv
 		bin/python -m pip install debugpy
