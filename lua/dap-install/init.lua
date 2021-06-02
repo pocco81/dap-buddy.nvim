@@ -11,13 +11,15 @@ local function call_on_dap(debugger)
     local dbg = require(dbg_list[debugger][1])
 	local dbg_info = dbg.dap_info["name"]
 
+	print("Got here!")
+
 	local test_tbl = {
 		adapters = dbg.config["adapters"],
 		configurations = dbg.config["configurations"]
 	}
 
 	print("")
-	print("")
+	print("-------------------------------------------")
 	print("")
 
 	for key, value in pairs(test_tbl["adapters"]) do
