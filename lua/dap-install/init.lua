@@ -15,7 +15,8 @@ function M.config(debugger, config)
 
 	print("Debugger = "..debugger.."; Config = "..tostring(config))
 
-    if not next(config) == nil then
+    if next(config) then
+		print("Got here!!")
         for opt, _ in pairs(config) do
 			print("Opt = "..opt)
             if (opt == "adapters") then
