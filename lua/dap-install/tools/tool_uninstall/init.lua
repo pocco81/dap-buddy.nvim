@@ -14,19 +14,20 @@ function M.uninstall_debugger(debugger)
         local dbg_path = dbg_list[debugger][2]
 
         if (utils_paths.assert_dir(dbg_path) == 1) then
-            if fn.confirm("Do you want to uinstall the debugger " .. debugger .. "?", "&Yes\n&Cancel") ~= 1 then
+            if fn.confirm("Do you want to uninstall the debugger " .. debugger .. "?", "&Yes\n&Cancel") ~= 1 then
                 return
             end
 
             local function onExit(_, code)
                 if code ~= 0 then
-                    error("Could not install " .. debugger .. " language server!")
+                    error("Could not uninstall the debugger " .. debugger .. "!")
                 end
-                print("Successfully installed " .. debugger .. " language server!")
+                print("Successfully uninstalled the debugger " .. debugger .. "!")
             end
 
             if (dbg.installer["uninstall"] == "simple") then
                 fn.delete("" .. dbg_path .. "", "rf")
+                print("Successfully uninstalled the debugger " .. debugger .. "!")
             else
                 cmd("new")
                 local shell = o.shell

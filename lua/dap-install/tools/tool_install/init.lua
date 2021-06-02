@@ -25,9 +25,9 @@ function M.install_debugger(debugger)
 
         local function onExit(_, code)
             if code ~= 0 then
-                error("Could not install " .. debugger .. " language server!")
+                error("Could not install the debugger " .. debugger .. "!")
             end
-            print("Successfully installed " .. debugger .. " language server!")
+            print("Successfully installed the debugger " .. debugger .. "!")
         end
 
         cmd("new")
