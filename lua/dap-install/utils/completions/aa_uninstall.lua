@@ -1,14 +1,22 @@
-
 local M = {}
 
 local dbg_list = require("dap-install.debuggers_list").debuggers
+local utils_paths = require("dap-install.utils.paths.init")
 
 local function is_debugger_installed(debugger)
-	return require("dap-install.utils.paths.init").assert_dir(dbg_list[debugger][2]) == 1
+    return require("dap-install.utils.paths.init").assert_dir(dbg_list[debugger][2]) == 1
 end
 
 function M.available_commands()
-	return vim.tbl_filter(function(key) return is_debugger_installed(key) end, dbg_list)
+    local arguments = {}
+
+    for debugger, _ in pairs(dbg_list) do
+        if (utils_paths.assert_dir(dbg_list[debugger][2]) == 1) then
+            arguments[debugger] = debugger
+        end
+    end
+
+    return vim.tbl_keys(arguments)
 end
 
 return M
