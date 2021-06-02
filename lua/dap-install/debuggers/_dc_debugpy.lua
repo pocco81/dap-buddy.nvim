@@ -39,8 +39,6 @@ M.config = {
 M.installer = {
 	before = "",
 	after = [[
-		echo "pwd = `pwd`"
-		cd debugpy/
 		python -m venv
 		bin/python -m pip install debugpy
 	]]
