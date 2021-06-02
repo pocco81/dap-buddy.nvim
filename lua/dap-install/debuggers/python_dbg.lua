@@ -2,7 +2,7 @@ local M = {}
 
 
 local opts = require("dap-install.config").options
-local dbg_path = require("dap-install.debuggers_list").debuggers["debugpy_dbg"][2]
+local dbg_path = require("dap-install.debuggers_list").debuggers["python_dbg"][2]
 local fn = vim.fn
 
 M.dap_info = {
@@ -27,8 +27,8 @@ M.config = {
                 local cwd = fn.getcwd()
                 if fn.executable(dbg_path.."bin/python") == 1 then
                     return dbg_path.."bin/python"
-                elseif fn.executable(dbg_path.."/debugpy/bin/python") == 1 then
-                    return dbg_path.."/debugpy/bin/python"
+                elseif fn.executable(dbg_path.."bin/python") == 1 then
+                    return dbg_path.."bin/python"
                 else
                     return "/usr/bin/python"
                 end
