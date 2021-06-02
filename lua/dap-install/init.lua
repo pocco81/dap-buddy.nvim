@@ -30,9 +30,9 @@ function M.config(debugger, config)
                 print("Config -1 = " .. tostring(config[opt]))
                 for inner_opt, _ in pairs(config[opt][1]) do
                     print("Inner opt (configurations) = " .. inner_opt)
-                    -- if (dbg.config["config"][opt]["configurations"][1][inner_opt] ~= nil) then -- not nil
-                    --     config.options[opt]["configurations"][1][inner_opt] = config[opt][1][inner_opt]
-                    -- end
+                    if (dbg.config["config"][opt][1][inner_opt] ~= nil) then -- not nil
+                        dbg.config["config"][opt][1][inner_opt] = config[opt][1][inner_opt]
+                    end
                 end
             else
                 print("Opt " .. tostring(opt) .. " was not recognized!")
