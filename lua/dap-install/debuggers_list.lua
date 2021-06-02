@@ -5,7 +5,7 @@ local opts = require("dap-install.config").options
 local M = {}
 
 M.debuggers = {
-    ["debugpy_dbg"] = {"dap-install.debuggers._dc_debugpy", opts.installation_path.."debugpy_dbg/"}
+    ["debugpy_dbg"] = {"dap-install.debuggers.debugpy_dbg", opts.installation_path.."debugpy_dbg/"}
 }
 
 return M

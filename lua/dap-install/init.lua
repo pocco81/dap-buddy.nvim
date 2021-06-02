@@ -35,7 +35,7 @@ function M.config(debugger, config)
                     end
                 end
             else
-                print("Opt " .. tostring(opt) .. " was not recognized!")
+                print("Config option" .. tostring(opt) .. " was not recognized!")
             end
         end
     end
