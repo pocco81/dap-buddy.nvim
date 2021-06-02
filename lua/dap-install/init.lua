@@ -9,30 +9,10 @@ end
 
 local function call_on_dap(debugger)
     local dbg = require(dbg_list[debugger][1])
-	local dbg_name = dbg.dap_info["name"]
-
-	print("Got here!")
-
-	local test_tbl = {
-		adapters = dbg.config["adapters"],
-		configurations = dbg.config["configurations"]
-	}
-
-	print("")
-	print("-------------------------------------------")
-	print("")
-
-	for key, value in pairs(test_tbl["adapters"]) do
-		print("key = "..tostring(key).."; Value = "..tostring(value))
-	end
-
-	for key, value in pairs(test_tbl["configurations"]) do
-		print("key = "..tostring(key).."; Value = "..tostring(value))
-	end
+    local dbg_name = dbg.dap_info["name"]
 
     dap.adapters[dbg_name] = dbg.config["adapters"]
     dap.configurations[dbg_name] = dbg.config["configurations"]
-
 end
 
 function M.config(debugger, config)
