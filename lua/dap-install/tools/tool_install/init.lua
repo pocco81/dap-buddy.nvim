@@ -35,14 +35,19 @@ function M.install_debugger(debugger)
         cmd("echo ''")
 
         cmd("new")
+		cmd("echo getcwd()")
         local shell = o.shell
         o.shell = "/bin/bash"
 
         cmd(dbg.installer["before"])
+
+		cmd("echo getcwd()")
         fn.termopen("set -e\n" .. dbg.installer["after"], {["cwd"] = dbg_path, ["on_exit"] = onExit})
         o.shell = shell
 
         cmd("startinsert")
+
+		cmd("echo getcwd()")
     else
         cmd("echo 'DAPInstall: the debugger " .. debugger .. " does not exist/support is under development'")
     end
