@@ -10,6 +10,9 @@ local dbg_list = require("dap-install.debuggers_list").debuggers
 
 function M.uninstall_debugger(debugger)
     if not utils_tbl.tbl_has_element(dbg_list, debugger) then
+        local dbg = require(dbg_list[debugger][1])
+        local dbg_path = dbg_list[debugger][2]
+
         if (utils_paths.assert_dir(dbg_path) == 1) then
             if fn.confirm("Do you want to uinstall the debugger " .. debugger .. "?", "&Yes\n&Cancel") ~= 1 then
                 return
@@ -21,9 +24,6 @@ function M.uninstall_debugger(debugger)
                 end
                 print("Successfully installed " .. debugger .. " language server!")
             end
-
-            local dbg = require(dbg_list[debugger][1])
-            local dbg_path = dbg_list[debugger][2]
 
             if (dbg.installer["uninstall"] == "simple") then
                 fn.delete("" .. dbg_path .. "", "rf")

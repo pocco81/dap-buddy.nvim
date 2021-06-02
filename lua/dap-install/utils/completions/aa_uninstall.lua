@@ -3,10 +3,6 @@ local M = {}
 local dbg_list = require("dap-install.debuggers_list").debuggers
 local utils_paths = require("dap-install.utils.paths.init")
 
-local function is_debugger_installed(debugger)
-    return require("dap-install.utils.paths.init").assert_dir(dbg_list[debugger][2]) == 1
-end
-
 function M.available_commands()
     local arguments = {}
 
