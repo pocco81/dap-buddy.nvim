@@ -1,7 +1,7 @@
 local M = {}
 
 local dap = require("dap")
-local dbg_list = require("dap-install.debuggers_list").debuggers
+-- local dbg_list = require("dap-install.debuggers_list").debuggers
 
 function M.setup(custom_opts)
 	print("Got here")
