@@ -46,13 +46,13 @@ function M.config(debugger, config)
                         print("Config option" .. tostring(opt) .. " was not recognized!")
                     end
                 end
-            else
-                if (require("dap-install.config").options["verbosely_call_debuggers"] == true) then
-                    print("DAPInstall: The debugger " .. debugger .. " is not installed")
-                end
             end
 
             call_on_dap(debugger, dbg_list)
+        else
+            if (require("dap-install.config").options["verbosely_call_debuggers"] == true) then
+                print("DAPInstall: The debugger " .. debugger .. " is not installed")
+            end
         end
     else
         print("DAPInstall: The debugger " .. debugger .. " is unsupported")
