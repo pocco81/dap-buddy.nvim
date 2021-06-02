@@ -9,7 +9,7 @@ local utils_paths = require("dap-install.utils.paths.init")
 local dbg_list = require("dap-install.debuggers_list").debuggers
 
 function M.install_debugger(debugger)
-    if not utils_tbl.tbl_has_element(dbg_list, debugger) then
+    if utils_tbl.tbl_has_element(dbg_list, debugger, "index") then
         if fn.confirm("Do you want to install the debugger " .. debugger .. "?", "&Yes\n&Cancel") ~= 1 then
             return
         end

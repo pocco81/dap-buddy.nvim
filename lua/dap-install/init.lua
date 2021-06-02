@@ -19,7 +19,7 @@ function M.config(debugger, config)
     config = config or {}
     local dbg_list = require("dap-install.debuggers_list").debuggers
 
-    if utils_tbl.tbl_has_element(dbg_list, debugger) then
+    if utils_tbl.tbl_has_element(dbg_list, debugger, "index") then
         local dbg = require(dbg_list[debugger][1])
 
         if next(config) then
