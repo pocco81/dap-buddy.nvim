@@ -2,7 +2,7 @@ local M = {}
 
 
 local opts = require("dap-install.config").options
-local dbg_path = require("dap-install.debuggers_list").debuggers["debugpy"][2]
+local dbg_path = require("dap-install.debuggers_list").debuggers["debugpy_dbg"][2]
 local fn = vim.fn
 
 M.dap_info = {
