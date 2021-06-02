@@ -13,7 +13,7 @@ M.debuggers = {
     ["php_dbg"] = {"dap-install.debuggers.php_dbg", opts.installation_path.."php_dbg/"},
     ["dnetcs_dbg"] = {"dap-install.debuggers.dnetcs_dbg", opts.installation_path.."dnetcs_dbg/"},
     ["go_delve_dbg"] = {"dap-install.debuggers.go_delve_dbg", opts.installation_path.."go_delve_dbg/"},
-    ["ccppr_lldb_dbg"] = {"dap-install.debuggers.ccppr_dbg", opts.installation_path.."ccppr_dbg/"},
+    ["ccppr_lldb_dbg"] = {"dap-install.debuggers.ccppr_lldb_dbg", opts.installation_path.."ccppr_lldb_dbg/"},
     ["dart_dbg"] = {"dap-install.debuggers.dart_dbg", opts.installation_path.."dart_dbg/"},
 }
 
