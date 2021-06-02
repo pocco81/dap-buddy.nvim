@@ -13,6 +13,8 @@ function M.config(debugger, config)
     local dbg_list = require("dap-install.debuggers_list").debuggers
     local dbg = require(dbg_list[debugger][1])
 
+	print("Debugger = "..debugger.."; Config = "..tostring(config))
+
     if not next(config) == nil then
         for opt, _ in pairs(config) do
 			print("Opt = "..opt)
