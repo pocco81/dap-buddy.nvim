@@ -20,10 +20,10 @@ function M.config(debugger, config)
             print("Opt = " .. opt)
             if (opt == "adapters") then
                 print("adapters = " .. tostring(config[opt]))
-                for inner_opt, _ in pairs(config[opt][1]) do
+                for inner_opt, _ in pairs(config[opt]) do
                     print("Inner opt (adapters) = " .. inner_opt)
-                    if (dbg.config[opt][1][inner_opt] ~= nil) then -- not nil
-                        dbg.config[opt][1][inner_opt] = config[opt][1][inner_opt]
+                    if (dbg.config[opt][inner_opt] ~= nil) then -- not nil
+                        dbg.config[opt][inner_opt] = config[opt][inner_opt]
                     end
                 end
             elseif (opt == "configurations") then
