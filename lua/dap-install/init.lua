@@ -4,6 +4,7 @@ local dap = require("dap")
 local dbg_list = require("dap-install.debuggers_list").debuggers
 
 function M.setup(custom_opts)
+	print("Got here")
     require("dap-install.config").set_options(custom_opts)
 end
 
