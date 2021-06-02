@@ -22,7 +22,7 @@ local function call_on_dap(debugger)
 	print("-------------------------------------------")
 	print("")
 
-	for key, value in pairs(test_tbl["adapters"]) do
+	for key, value in pairs(test_tbl["configurations"]) do
 		print("key = "..tostring(key).."; Value = "..value)
 	end
 
