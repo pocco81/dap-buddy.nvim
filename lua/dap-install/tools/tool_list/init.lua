@@ -18,7 +18,7 @@ function M.list_debuggers()
     local shell = o.shell
     o.shell = "/bin/bash"
 
-    fn.termopen("set -e\n ls -la " .. opts["installation_path"] .. "", {["on_exit"] = onExit})
+    fn.termopen("set -e\n ls -Gg " .. opts["installation_path"] .. "", {["on_exit"] = onExit})
     o.shell = shell
 
     cmd("startinsert")
