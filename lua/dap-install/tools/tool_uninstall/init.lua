@@ -9,7 +9,7 @@ local utils_paths = require("dap-install.utils.paths.init")
 local dbg_list = require("dap-install.debuggers_list").debuggers
 
 function M.uninstall_debugger(debugger)
-    if not utils_tbl.tbl_has_element(dbg_list, debugger) then
+    if utils_tbl.tbl_has_element(dbg_list, debugger, "index") then
         local dbg = require(dbg_list[debugger][1])
         local dbg_path = dbg_list[debugger][2]
 

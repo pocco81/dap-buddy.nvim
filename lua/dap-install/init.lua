@@ -41,11 +41,12 @@ function M.config(debugger, config)
                 end
             end
         end
+
+		call_on_dap(debugger, dbg_list)
 	else
 		print("DAPInstall: The debugger "..debugger.." is unsupported")
     end
 
-    call_on_dap(debugger, dbg_list)
 end
 
 return M
