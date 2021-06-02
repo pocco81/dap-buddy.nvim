@@ -30,11 +30,7 @@ function M.install_debugger(debugger)
             print("Successfully installed " .. debugger .. " language server!")
         end
 
-        cmd("echo 'Installing Debugger " .. debugger .. "'")
-        cmd("echo 'Installer before cmd = " .. dbg.installer["before"] .. "'")
-        -- cmd("echo 'Installer after cmd = " .. dbg.installer["after"] .. "'")
-        cmd("echo 'Installation path = " .. dbg_path .. "'")
-        cmd("echo ''")
+		cmd("echo 'Installing the debugger "..debugger.."...'")
 
         cmd("new")
         local shell = o.shell
