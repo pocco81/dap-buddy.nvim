@@ -40,7 +40,7 @@ endfunction
 " Interface {{{
 command! -nargs=+ -complete=custom,s:complete_args_install DIInstall call v:lua.require("dap-install.main").main(0,dicmds#get_first_arg(<f-args>))
 command! -nargs=+ -complete=custom,s:complete_args_uninstall DIUninstall call v:lua.require("dap-install.main").main(1,dicmds#get_first_arg(<f-args>))
-" command! DIList call v:lua.require("dap-install.main").main(0,dicmds#get_first_arg(<f-args>))
+command! -nargs=0 DIList call v:lua.require("dap-install.main").main(0)
 " }}}
 
 
