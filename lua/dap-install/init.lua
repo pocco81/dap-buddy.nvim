@@ -30,8 +30,8 @@ local function call_on_dap(debugger)
 		print("key = "..tostring(key).."; Value = "..tostring(value))
 	end
 
-    dap.adapters.dap_name = dbg.config["adapters"]
-    dap.configurations.dap_name = dbg.config["configurations"]
+    dap.adapters[dbg_name] = dbg.config["adapters"]
+    dap.configurations[dbg_name] = dbg.config["configurations"]
 
 end
 
