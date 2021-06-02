@@ -37,7 +37,7 @@ M.config = {
 }
 
 M.installer = {
-	before = [[cd ]]..opts.installation_path,
+	before = [[cd ]]..opts.installation_path..[[]],
 	after = [[
 		cd debugpy/
 		python -m venv
