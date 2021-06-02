@@ -18,10 +18,10 @@ function M.install_debugger(debugger)
         local dbg_path = dbg_list[debugger][2]
 
         if (utils_paths.assert_dir(dbg_path) == 1) then
-			fn.delete("" .. dbg_path .. "", "rf")
+            fn.delete("" .. dbg_path .. "", "rf")
         end
 
-		fn.mkdir("" .. dbg_path .. "", "p")
+        fn.mkdir("" .. dbg_path .. "", "p")
 
         local function onExit(_, code)
             if code ~= 0 then
@@ -29,8 +29,6 @@ function M.install_debugger(debugger)
             end
             print("Successfully installed " .. debugger .. " language server!")
         end
-
-		cmd("echo 'Installing the debugger "..debugger.."...'")
 
         cmd("new")
         local shell = o.shell
@@ -41,7 +39,6 @@ function M.install_debugger(debugger)
         o.shell = shell
 
         cmd("startinsert")
-
     else
         cmd("echo 'DAPInstall: the debugger " .. debugger .. " does not exist/support is under development'")
     end

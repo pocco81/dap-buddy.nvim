@@ -2,7 +2,8 @@ local M = {}
 
 
 local opts = require("dap-install.config").options
-
+local dbg_path = require("dap-install.debuggers_list").debuggers["debugpy"][2]
+local fn = vim.fn
 
 M.dap_info = {
     name = "python",
@@ -13,7 +14,7 @@ M.dap_info = {
 M.config = {
     adapters = {
         type = "executable",
-        command = opts.installation_path.."/debugpy/bin/python",
+        command = dbg_path.."bin/python",
         args = {"-m", "debugpy.adapter"}
     },
     configurations = {
@@ -23,11 +24,11 @@ M.config = {
             name = "Launch file",
             program = "${file}", -- This configuration will launch the current file if used.
             pythonPath = function()
-                local cwd = vim.fn.getcwd()
-                if vim.fn.executable(opts.installation_path.."/debugpy/bin/python") == 1 then
-                    return opts.installation_path.."/debugpy/bin/python"
-                elseif vim.fn.executable(opts.installation_path.."/debugpy/bin/python") == 1 then
-                    return opts.installation_path.."/debugpy/bin/python"
+                local cwd = fn.getcwd()
+                if fn.executable(dbg_path.."bin/python") == 1 then
+                    return dbg_path.."bin/python"
+                elseif fn.executable(dbg_path.."/debugpy/bin/python") == 1 then
+                    return dbg_path.."/debugpy/bin/python"
                 else
                     return "/usr/bin/python"
                 end

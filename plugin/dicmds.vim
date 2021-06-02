@@ -13,9 +13,12 @@ function! dicmds#get_first_arg(...)
 endfunction
 " }}}
 
+
 " Test Availability {{{
+" aa = available arguments
+
 function! dicmds#available_args_install() abort
-	return luaeval('require("dap-install.debuggers_list").available_commands()')
+	return luaeval('require("dap-install.utils.completions.aa_install").available_commands()')
 endfunction
 " }}}
 
