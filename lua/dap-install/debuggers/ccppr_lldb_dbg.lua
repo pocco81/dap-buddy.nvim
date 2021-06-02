@@ -1,6 +1,6 @@
 local M = {}
 
-local dbg_path = require("dap-install.debuggers_list").debuggers["ccppr_dbg"][2]
+local dbg_path = require("dap-install.debuggers_list").debuggers["ccppr_lldb_dbg"][2]
 
 M.dap_info = {
     name_adapter = "cpp"
