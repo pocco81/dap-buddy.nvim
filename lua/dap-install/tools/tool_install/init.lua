@@ -35,7 +35,7 @@ function M.install_debugger(debugger)
         o.shell = "/bin/bash"
 
         cmd(dbg.installer["before"])
-        fn.termopen("set -e\n" .. dbg.installer["after"], {["cwd"] = dbg_path, ["on_exit"] = onExit})
+        fn.termopen("set -e\n" .. dbg.installer["install"], {["cwd"] = dbg_path, ["on_exit"] = onExit})
         o.shell = shell
 
         cmd("startinsert")

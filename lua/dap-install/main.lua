@@ -12,6 +12,7 @@ function M.main(option, command_option)
 	if (option == 0) then
 		require("dap-install.tools.tool_install.init").install_debugger(command_option)
 	elseif (option == 1) then
+		require("dap-install.tools.tool_uninstall.init").uninstall_debugger(command_option)
 	else
 		cmd("echo 'DAPInstall: Command was not recognized'")
 	end
