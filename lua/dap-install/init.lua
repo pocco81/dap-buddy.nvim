@@ -13,7 +13,7 @@ function M.config(debugger, config)
     local dbg_list = require("dap-install.debuggers_list").debuggers
     local dbg = require(dbg_list[debugger][1])
 
-    if next(config) == nil then
+    if not next(config) == nil then
         for opt, _ in pairs(config) do
             if (opt == "adapters") then
                 for inner_opt, _ in pairs(opt["adapters"]) do
