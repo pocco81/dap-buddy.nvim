@@ -28,12 +28,14 @@ function M.config(debugger, config)
                 end
             elseif (opt == "configurations") then
 				-- should iterate through index one
-                for inner_opt, _ in pairs(opt["configurations"][1]) do
-					print("Inner opt (configurations) = "..inner_opt)
-                    if (dbg.config["config"][opt]["configurations"][1][inner_opt] ~= nil) then -- not nil
-                        config.options[opt]["configurations"][1][inner_opt] = config[opt][1][inner_opt]
-                    end
-                end
+				print("Config 0 = "..tostring(opt["configurations"]))
+				print("Config 1 = "..tostring(opt["configurations"][1]))
+					--                 for inner_opt, _ in pairs(opt["configurations"][1]) do
+					-- print("Inner opt (configurations) = "..inner_opt)
+					--                     if (dbg.config["config"][opt]["configurations"][1][inner_opt] ~= nil) then -- not nil
+					--                         config.options[opt]["configurations"][1][inner_opt] = config[opt][1][inner_opt]
+					--                     end
+					--                 end
 			else
 				print("Opt "..tostring(opt).." was not recognized!")
             end
