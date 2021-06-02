@@ -39,7 +39,7 @@ M.config = {
 M.installer = {
 	before = "",
 	after = [[
-		python -m venv
+		python -m venv .
 		bin/python -m pip install debugpy
 	]]
 }
