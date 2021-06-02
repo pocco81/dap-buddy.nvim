@@ -5,6 +5,9 @@ The idea of this plugin is for it to manage debuggers for several programming le
 	1. Install debuggers
 	2. Uninstall debuggers
 	3. List debuggers (?)
+	4. Have an API
+		4.i0 get installation path
+		4.i1 get path of a debugger
 
 
 For that it will have these commands:

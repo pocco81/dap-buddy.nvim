@@ -9,7 +9,7 @@ end
 
 local function call_on_dap(debugger)
     local dbg = require(dbg_list[debugger][1])
-	local dbg_info = dbg.dap_info["name"]
+	local dbg_name = dbg.dap_info["name"]
 
 	print("Got here!")
 
@@ -30,30 +30,9 @@ local function call_on_dap(debugger)
 		print("key = "..tostring(key).."; Value = "..tostring(value))
 	end
 
---     dap.adapters.dap_info = {
---         type = "executable",
---         command = "python3.9",
---         args = {"-m", "debugpy.adapter"}
---     }
---
---     dap.configurations.python = {
---         {
---             type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
---             request = "launch",
---             name = "Launch file",
---             program = "${file}", -- This configuration will launch the current file if used.
---             pythonPath = function()
---                 local cwd = vim.fn.getcwd()
---                 if vim.fn.executable(cwd .. "/usr/bin/python3.9") == 1 then
---                     return cwd .. "/usr/bin/python3.9"
---                 elseif vim.fn.executable(cwd .. "/usr/bin/python3.9") == 1 then
---                     return cwd .. "/usr/bin/python3.9"
---                 else
---                     return "/usr/bin/python3.9"
---                 end
---             end
---         }
---     }
+    dap.adapters.dap_name = dbg.config["adapters"]
+    dap.configurations.dap_name = dbg.config["configurations"]
+
 end
 
 function M.config(debugger, config)
