@@ -17,9 +17,11 @@ function M.install_debugger(debugger)
         local dbg = require(dbg_list[debugger][1])
         local dbg_path = dbg_list[debugger][2]
 
-        if not (utils_paths.assert_dir(dbg_path) == 1) then
-            fn.mkdir("" .. dbg_path .. "", "p")
+        if (utils_paths.assert_dir(dbg_path) == 1) then
+			fn.delete("" .. dbg_path .. "", "rf")
         end
+
+		fn.mkdir("" .. dbg_path .. "", "p")
 
         local function onExit(_, code)
             if code ~= 0 then
