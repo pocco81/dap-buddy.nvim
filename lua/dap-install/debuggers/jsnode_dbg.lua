@@ -35,7 +35,7 @@ M.installer = {
 		gulp build
 	]],
     uninstall = [[
-		cd vscode-node-debug2 && sudo npm uninstall
+		cd vscode-node-debug2 && sudo npm uninstall .
 		cd ../..
 		sudo rm -rf jsnode_dbg
 	]]

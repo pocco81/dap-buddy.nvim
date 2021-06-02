@@ -35,8 +35,7 @@ M.installer = {
 		sudo npm install
 	]],
     uninstall = [[
-		cd vscode-mock-debug
-		sudo npm uninstall
+		cd vscode-mock-debug && sudo npm uninstall .
 		cd ../..
 		sudo rm -rf markdown_dbg
 	]]

@@ -30,7 +30,7 @@ M.installer = {
 		sudo npm install && sudo npm run build
 	]],
     uninstall = [[
-		cd vscode-php-debug && sudo npm uninstall
+		cd vscode-php-debug && sudo npm uninstall .
 		cd ../..
 		sudo rm -rf php_dbg
 	]]
