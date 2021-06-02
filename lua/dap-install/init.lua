@@ -28,6 +28,7 @@ function M.config(debugger, config)
 					--                 end
             elseif (opt == "configurations") then
 				-- should iterate through index one
+				print("Config -1 = "..tostring(config[opt]))
 				print("Config 0 = "..tostring(config[opt]["configurations"]))
 				print("Config 1 = "..tostring(config[opt]["configurations"][1]))
 					--                 for inner_opt, _ in pairs(opt["configurations"][1]) do
