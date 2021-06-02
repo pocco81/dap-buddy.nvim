@@ -1,7 +1,5 @@
 local config = {}
 
-print("HEREEE")
-
 config.options = {
     installation_path = vim.fn.stdpath("data") .. "/dapinstall/"
 }
