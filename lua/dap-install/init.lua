@@ -9,10 +9,9 @@ end
 
 local function call_on_dap(debugger, dbg_list)
     local dbg = require(dbg_list[debugger][1])
-    local dbg_name = dbg.dap_info["name"]
 
-    dap.adapters[dbg_name] = dbg.config["adapters"]
-    dap.configurations[dbg_name] = dbg.config["configurations"]
+    dap.adapters[dbg.dap_info["name_adapter"]] = dbg.config["adapters"]
+    dap.configurations[dbg.dap_info["name_configuration"]] = dbg.config["configurations"]
 end
 
 function M.config(debugger, config)
