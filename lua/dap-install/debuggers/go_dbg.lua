@@ -1,6 +1,6 @@
 local M = {}
 
-local dbg_path = require("dap-install.debuggers_list").debuggers["dbg_dbg"][2]
+local dbg_path = require("dap-install.debuggers_list").debuggers["go_dbg"][2]
 local fn = vim.fn
 
 M.dap_info = {

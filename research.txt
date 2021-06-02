@@ -41,5 +41,5 @@ List of Debuggers:
 + node-debug2						(jsnode_dbg)			(JS/Node)			(adapters; configurations)			(done)
 + vscode-php-debug					(php_dbg)				(Php)				(adapters; configurations)
 + Nvim-metals						(scala_dbg)				(Scala)
-+ OSSFV								(lua_dbg)				(Lua)				(adapters; configurations)
-+ netcoredbg						(dnetcs_dbg)			(.NET, Csharp)		(adapters; configurations)
++ OSSFV								(lua_dbg)				(Lua)				(adapters; configurations)			(done)
++ netcoredbg						(dnetcs_dbg)			(.NET, Csharp)		(adapters; configurations)			(done)
