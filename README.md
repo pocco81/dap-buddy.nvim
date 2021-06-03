@@ -43,11 +43,10 @@
 	Demo
 </p><hr>
 
-
 # TL;DR
 
 <div style="text-align: justify">
-	DAPInstall.nvim is a NeoVim plugin written in Lua that extends nvim-dap's functionality for managing various debuggers. Everything from installation, configuration, setup, etc... can all be done using DAPInstall.nvim. To get started, install it with your favorite plugin manager and then install the debuggers you'd like to use using the :DIInstall <debugger_name> command and configure it using a loop provided in the Doc.
+	DAPInstall.nvim is a NeoVim plugin written in Lua that extends nvim-dap's functionality for managing various debuggers. Everything from installation, configuration, setup, etc... can be done using DAPInstall.nvim. To get started, install it with your favorite plugin manager and then install the debuggers you'd like to use using the ':DIInstall <debugger>' command and [optionally] use its default config.
 </div>
 
 
@@ -67,7 +66,10 @@
 	* [Default](#default)
 * [Configuration](#-configuration)
 	* [General](#general)
+	* [Debuggers](#debuggers)
+	* [List of debuggers](#list-of-debuggers)
 * [Contribute](#-contribute)
+	* [Need Help](#need-help)
 * [Inspirations](#-inspirations)
 * [License](#-license)
 * [FAQ](#-faq)
@@ -120,7 +122,7 @@ installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
 verbosely_call_debuggers = false,
 ```
 
-The way you setup the settings on your config varies on whether you are using vimL for this or Lua.
+The way you setup the settings on your configuration varies on whether you are using vimL for this or Lua.
 
 
 <details>
@@ -177,21 +179,109 @@ Although settings already have self-explanatory names, here is where you can fin
 
 ## General
 This settings are unrelated to any group and are independent.
-- `installation_path`: (String) path to where the debuggers will be installed.
+- `installation_path`: (String) path to where the debuggers will be installed. The only condition is that the path **must** end with a forward slash ("/")
 - `verbosely_call_debuggers`: (Boolean) prints a message whenever a debugger that the user it trying to call for configuration isn't installed.
 
-# 🙋 FAQ
+## Debuggers
+To configure the debuggers DAPInstall.nvim provides the `config("<debugger>", {<config>})` function that receives two arguments:
 
-- Q: ***"What if I repeat a color's number?"***
-- A: There would a conflict when calling `:HSHighlight`, however it will try and call any of those colors.
+- `<debugger>`: the name of the debugger that can be found in the table below.
+- `<config>`: the configuration of the debugger itself.
+
+In the `<config>` you must pass a table with at least one of two keys (`adapters` and/or `configurations`). Every debugger has its own settings but they all something in common, they either have a `adapters = {}` table, a `configurations = {}` table or both. To edit the debuggers' settings in either of those sections just create the key and set the value to whatever you want. **Remember that every debugger has its own config** that can be found [here](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation)
+
+Examples:
+
+1. Will configure the **Python debugger** with its default values:
+```
+local dap_install = require("dap-install")
+dap_install.config("python_dbg", {})
+```
+2. Will override some values from the **Python debugger**:
+```
+local dap_install = require("dap-install")
+dap_install.config(
+	"python_dbg",
+    {
+        adapters = {
+            type = "executable",
+            command = "python3.9",
+            args = {"-m", "debugpy.adapter"}
+        },
+        configurations = {
+            {
+                type = "python",
+                request = "launch",
+                name = "Launch file",
+                program = "${file}",
+                pythonPath = function()
+                    local cwd = vim.fn.getcwd()
+                    if vim.fn.executable(cwd .. "/usr/bin/python3.9") == 1 then
+                        return cwd .. "/usr/bin/python3.9"
+                    elseif vim.fn.executable(cwd .. "/usr/bin/python3.9") == 1 then
+                        return cwd .. "/usr/bin/python3.9"
+                    else
+                        return "/usr/bin/python3.9"
+                    end
+                end
+            }
+        }
+    }
+)
+```
+
+You could also use a loop to configure every installed debugger like so:
+
+```lua
+local dap_install = require("dap-install")
+local dbg_list = require("dap-install.debuggers_list").debuggers
+
+for debugger, _ in pairs(dbg_list) do
+	dap_install.config(debugger, {})
+end
+```
+
+### List of debuggers
+
+| DI. Name         | Pro. Language | Debugger              | Status       |
+|------------------|---------------|-----------------------|--------------|
+| `python_dbg`     | Python        | debugpy               | Tested       |
+| `ccppr_lldb_dbg` | C, C++, Rust  | lldb-vscode           | Experimental |
+| `ccppr_vsc_dbg`  | C, C++, Rust  | vsc-cpptools          | Unsupported  |
+| `go_dbg`         | Go            | delve, vscode-go      | Tested       |
+| `go_delve_dbg`   | Go            | delve                 | Tested       |
+| `java_dbg`       | Java          | java-debug            | Unsupported  |
+| `markdown_dbg`   | Markdown      | mockdebug             | Experimental |
+| `dart_dbg`       | Dart          | dart-code             | Supported    |
+| `haskell_dbg`    | Haskell       | haskell-debug-adapter | Unsupported  |
+| `jsnode_dbg`     | JavaScript    | node-debug2           | Supported    |
+| `php_dbg`        | PHP           | vscode-php-debug      | Tested       |
+| `scala_dbg`      | Scala         | nvim-metals           | Unsupported  |
+| `lua_dbg`        | Lua           | OSSFV                 | Tested       |
+| `dnetcs_dbg`     | .NET, C#      | netcoredbg            | Supported    |
+
+* `Tested` : Fully supported
+* `Supported` : Fully supported, but needs testing.
+* `Experimental`: Still on the works.
+* `Legacy`: No longer supported, please migrate your configuration.
+* `Retired`: No longer included or supported.
+
+# 🙋 FAQ
 
 - Q: ***"How can I view the doc from NeoVim?"***
 - A: Use `:help DAPInstall.nvim`
 
 
 # 🫂 Contribute
-
 Pull Requests are welcomed as long as they are properly justified and there are no conflicts. If your PR has something to do with the README or in general related with the documentation, I'll gladly merge it! Also, when writing code for the project **you must** use the [.editorconfig](https://github.com/Pocco81/DAPInstall.nvim/blob/main/.editorconfig) file on your editor so as to "maintain consistent coding styles". For instructions on how to use this file refer to [EditorConfig's website](https://editorconfig.org/).
+
+## Need help
+This is a list of things I currently need help with:
+
+1. Testing the installers and reporting back via an issue
+2. Creating the missing installers for the various debuggers
+3. Correcting the installers that are broken
+
 
 # 💭 Inspirations
 
