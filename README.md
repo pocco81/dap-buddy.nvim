@@ -46,7 +46,7 @@
 # TL;DR
 
 <div style="text-align: justify">
-	DAPInstall.nvim is a NeoVim plugin written in Lua that extends nvim-dap's functionality for managing various debuggers. Everything from installation, configuration, setup, etc... can be done using DAPInstall.nvim. To get started, install it with your favorite plugin manager and then install the debuggers you'd like to use using the ':DIInstall <debugger>' command and [optionally] use its default config.
+	DAPInstall.nvim is a NeoVim plugin written in Lua that extends nvim-dap's functionality for managing various debuggers. Everything from installation, configuration, setup, etc... can be done using DAPInstall.nvim. To get started, install it with your favorite plugin manager and then install the debuggers you'd like to use using the ':DIInstall <debugger>' command and [optionally] use their default configs.
 </div>
 
 
@@ -77,6 +77,7 @@
 
 # 🎁 Features
 - (Un)Installs debuggers
+- List installed debuggers
 - Can manage the configuration of every debugger [individually]
 - Supports a wide range of debuggers
 - User-friendly interface
