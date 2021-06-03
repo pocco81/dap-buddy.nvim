@@ -193,12 +193,13 @@ In the `<config>` you must pass a table with at least one of two keys (`adapters
 Examples:
 
 1. Will configure the **Python debugger** with its default values:
-```
+
+```lua
 local dap_install = require("dap-install")
 dap_install.config("python_dbg", {})
 ```
 2. Will override some values from the **Python debugger**:
-```
+```lua
 local dap_install = require("dap-install")
 dap_install.config(
 	"python_dbg",
