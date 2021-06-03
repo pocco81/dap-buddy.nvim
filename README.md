@@ -261,8 +261,8 @@ end
 | `lua_dbg`        | Lua           | OSSFV                 | Tested       |
 | `dnetcs_dbg`     | .NET, C#      | netcoredbg            | Supported    |
 
-* `Tested` : Fully supported
-* `Supported` : Fully supported, but needs testing.
+* `Tested`: Fully supported
+* `Supported`: Fully supported, but needs testing.
 * `Experimental`: Still on the works.
 * `Legacy`: No longer supported, please migrate your configuration.
 * `Retired`: No longer included or supported.
