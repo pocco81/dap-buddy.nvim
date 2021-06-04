@@ -5,7 +5,7 @@ local fn = vim.fn
 
 M.dap_info = {
     name_adapter = "node2",
-    name_configuration = "node2",
+    name_configuration = "javascript",
 }
 
 M.config = {
