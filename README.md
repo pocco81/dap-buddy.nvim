@@ -249,7 +249,7 @@ end
 |------------------|---------------|-----------------------|--------------|
 | `python_dbg`     | Python        | debugpy               | Tested       |
 | `ccppr_lldb_dbg` | C, C++, Rust  | lldb-vscode           | Experimental |
-| `ccppr_vsc_dbg`  | C, C++, Rust  | vsc-cpptools          | Unsupported  |
+| `ccppr_vsc_dbg`  | C, C++, Rust  | vsc-cpptools          | Experimental |
 | `go_dbg`         | Go            | delve, vscode-go      | Tested       |
 | `go_delve_dbg`   | Go            | delve                 | Tested       |
 | `java_dbg`       | Java          | java-debug            | Unsupported  |
