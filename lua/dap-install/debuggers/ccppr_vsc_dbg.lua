@@ -4,8 +4,8 @@ local dbg_path = require("dap-install.debuggers_list").debuggers["ccppr_vsc_dbg"
 local fn = vim.fn
 
 M.dap_info = {
-    name_adapter = "cpp",
-    name_configuration = ""
+    name_adapter = "cpptools",
+    name_configuration = "cpptools"
 }
 
 M.config = {
@@ -19,15 +19,28 @@ M.config = {
             pidSelect = "ask"
         }
     },
-    configurations = nil
+    configurations = {
+        {
+            name = "Launch (vscode-cpptools)",
+            type = "cpptools",
+            request = "launch",
+            program = function()
+                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            end,
+            cwd = "${workspaceFolder}",
+            stopOnEntry = true
+        }
+    }
 }
 
 M.installer = {
     before = "",
     install = [[
-		wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.1/cpptools-linux-aarch64.vsix
-		mv cpptools-linux-aarch64.vsix cpptools-linux-aarch64.zip
-		unzip cpptools-linux-aarch64.zip
+		wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.1/cpptools-linux.vsix
+		mv cpptools-linux.vsix cpptools-linux.zipmv cpptools-linux.vsix cpptools-linux.zip
+		unzip cpptools-linux.vsix cpptools-linux.zip
+		chmod +x extension/debugAdapters/{OpenDebugAD7,mono.linux-x86_64}
+		cp extension/cppdbg.ad7Engine.json extension/debugAdapters/bin/nvim-dap.ad7Engine.json
 	]],
     uninstall = "simple"
 }
