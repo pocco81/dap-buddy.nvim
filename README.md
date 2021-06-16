@@ -248,25 +248,27 @@ end
 | DI. Name         | Pro. Language | Debugger              | Status       |
 |------------------|---------------|-----------------------|--------------|
 | `python_dbg`     | Python        | debugpy               | Tested       |
-| `ccppr_lldb_dbg` | C, C++, Rust  | lldb-vscode           | Experimental |
-| `ccppr_vsc_dbg`  | C, C++, Rust  | vsc-cpptools          | Experimental |
 | `go_dbg`         | Go            | delve, vscode-go      | Tested       |
 | `go_delve_dbg`   | Go            | delve                 | Tested       |
-| `java_dbg`       | Java          | java-debug            | Unsupported  |
-| `markdown_dbg`   | Markdown      | mockdebug             | Experimental |
-| `dart_dbg`       | Dart          | dart-code             | Supported    |
-| `haskell_dbg`    | Haskell       | haskell-debug-adapter | Unsupported  |
-| `jsnode_dbg`     | JavaScript    | node-debug2           | Supported    |
 | `php_dbg`        | PHP           | vscode-php-debug      | Tested       |
-| `scala_dbg`      | Scala         | nvim-metals           | Unsupported  |
 | `lua_dbg`        | Lua           | OSSFV                 | Tested       |
+| `ruby_vsc_dbg`   | Ruby          | netcoredbg            | Tested       |
+| `dart_dbg`       | Dart          | dart-code             | Supported    |
+| `jsnode_dbg`     | JavaScript    | node-debug2           | Supported    |
 | `dnetcs_dbg`     | .NET, C#      | netcoredbg            | Supported    |
+| `ccppr_lldb_dbg` | C, C++, Rust  | lldb-vscode           | Experimental |
+| `ccppr_vsc_dbg`  | C, C++, Rust  | vsc-cpptools          | Experimental |
+| `markdown_dbg`   | Markdown      | mockdebug             | Experimental |
+| `java_dbg`       | Java          | java-debug            | Unsupported  |
+| `haskell_dbg`    | Haskell       | haskell-debug-adapter | Unsupported  |
+| `scala_dbg`      | Scala         | nvim-metals           | Unsupported  |
 
 * `Tested`: Fully supported
 * `Supported`: Fully supported, but needs testing.
 * `Experimental`: Still on the works.
 * `Legacy`: No longer supported, please migrate your configuration.
 * `Retired`: No longer included or supported.
+* `Unsupported`: No implementation whatsoever.
 
 # 🙋 FAQ
 
