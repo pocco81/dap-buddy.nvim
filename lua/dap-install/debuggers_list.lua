@@ -15,6 +15,7 @@ M.debuggers = {
     ["go_delve_dbg"] = {"dap-install.debuggers.go_delve_dbg", opts.installation_path.."go_delve_dbg/"},
     ["ccppr_lldb_dbg"] = {"dap-install.debuggers.ccppr_lldb_dbg", opts.installation_path.."ccppr_lldb_dbg/"},
     ["dart_dbg"] = {"dap-install.debuggers.dart_dbg", opts.installation_path.."dart_dbg/"},
+    ["ruby_vsc_dbg"] = {"dap-install.debuggers.ruby_vsc_dbg", opts.installation_path.."ruby_vsc_dbg/" }
 }
 
 return M
