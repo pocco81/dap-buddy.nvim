@@ -37,8 +37,8 @@ M.installer = {
     before = "",
     install = [[
 		wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.1/cpptools-linux.vsix
-		mv cpptools-linux.vsix cpptools-linux.zipmv cpptools-linux.vsix cpptools-linux.zip
-		unzip cpptools-linux.vsix cpptools-linux.zip
+		mv cpptools-linux.vsix cpptools-linux.zip
+		unzip cpptools-linux.zip
 		chmod +x extension/debugAdapters/{OpenDebugAD7,mono.linux-x86_64}
 		cp extension/cppdbg.ad7Engine.json extension/debugAdapters/bin/nvim-dap.ad7Engine.json
 	]],
