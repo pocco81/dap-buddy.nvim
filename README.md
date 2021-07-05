@@ -1,4 +1,4 @@
-# 🦆 DAPInstall
+<h1 align="center">🦆 DAPInstall</h1>
 
 <p align="center">
 	A NeoVim plugin for managing several debuggers for Nvim-dap
