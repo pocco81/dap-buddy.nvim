@@ -38,7 +38,7 @@ M.config = {
 M.installer = {
 	before = "",
 	install = [[
-		python -m venv .
+		python3 -m venv .
 		bin/python -m pip install debugpy
 	]],
 	uninstall = "simple"
