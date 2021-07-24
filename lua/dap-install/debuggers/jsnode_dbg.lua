@@ -32,7 +32,7 @@ M.installer = {
     install = [[
 		git clone https://github.com/microsoft/vscode-node-debug2.git && cd vscode-node-debug2
 		npm install
-		gulp build
+		npm run build
 	]],
     uninstall = [[
 		cd vscode-node-debug2 && npm uninstall .
