@@ -31,13 +31,13 @@ M.installer = {
     before = "",
     install = [[
 		git clone https://github.com/microsoft/vscode-node-debug2.git && cd vscode-node-debug2
-		sudo npm install
-		gulp build
+		npm install
+		npm run build
 	]],
     uninstall = [[
-		cd vscode-node-debug2 && sudo npm uninstall .
+		cd vscode-node-debug2 && npm uninstall .
 		cd ../..
-		sudo rm -rf jsnode_dbg
+		rm -rf jsnode_dbg
 	]]
 }
 
