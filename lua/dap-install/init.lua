@@ -32,8 +32,6 @@ function M.config(debugger, config)
     if utils_tbl.tbl_has_element(dbg_list, debugger, "index") then
         if (utils_paths.assert_dir(dbg_list[debugger][2]) == 1) then
             call_on_dap(debugger, dbg_list, config)
-        else
-			print("DAPInstall: The debugger " .. debugger .. " is not installed")
         end
     else
         print("DAPInstall: The debugger " .. debugger .. " is unsupported")
