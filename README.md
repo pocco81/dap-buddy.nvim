@@ -62,8 +62,9 @@
 		* [For init.lua](#for-initlua)
 		* [For init.vim](#for-initvim)
 	* [Updating](#updating)
-* [Usage (commands)](#-usage-commands)
-	* [Default](#default)
+* [Usage](#usage)
+	* [Commands](#commands)
+	* [Api](#api)
 * [Configuration](#-configuration)
 	* [General](#general)
 	* [Debuggers](#debuggers)
@@ -167,13 +168,38 @@ This depends on your plugin manager. If, for example, you are using Packer.nvim,
 :PackerUpdate
 ```
 
-# 🤖 Usage (commands)
+# 🤖 Usage
+
+## Commands
+
 All the commands follow the *camel casing* naming convention and have the `DI` prefix so that it's easy to remember that they are part of the DAPInstall.nvim plugin. These are all of them:
 
-## Default
 - `:DIInstall <debugger>` installs `<debugger>`.
 - `:DIUninstall <debugger>` uninstalls `<debugger>`.
 - `:DIList` lists installed debuggers.
+
+## API
+
+The API can be accessed by requiring it:
+
+```lua
+local di_api = require("dap-install.api").<module>
+```
+
+### Modules:
+
+Currently there is only one module available, and it's the `debuggers` module which has the following functions
+
+
+```lua
+di_api.get_debuggers()
+```
+> Returns table of available debuggers in which the key is the name of the debugger and the value is another table in which index `1` has name of the module whithin DAPInstall.nvim and index `2` has the installation path.
+
+```lua
+di_api.get_installed_debuggers()
+```
+> Returns a table with the names of the installed debuggers.
 
 # 🐬 Configuration
 Although settings already have self-explanatory names, here is where you can find info about each one of them and their classifications! 
