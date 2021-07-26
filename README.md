@@ -86,6 +86,8 @@
 # 📺 Notices
 Checkout the [CHANGELOG.md](https://github.com/Pocco81/DAPInstall.nvim/blob/main/CHANGELOG.md) file for more information on the notices below:
 
++ **26-07-21**: Added API.
+
 # 📦 Installation
 
 ## Prerequisites
