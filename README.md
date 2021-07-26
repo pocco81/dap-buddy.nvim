@@ -185,7 +185,7 @@ All the commands follow the *camel casing* naming convention and have the `DI` p
 The API can be accessed by requiring it:
 
 ```lua
-local di_api = require("dap-install.api").<module>
+local di_api = require("dap-install.api.<module>")
 ```
 
 ### Modules:
