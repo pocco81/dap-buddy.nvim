@@ -20,7 +20,7 @@ M.config = {
             name = "launch - netcoredbg",
             request = "launch",
             program = function()
-                return fn.input(dbg_path .. "netcoredbg/ManagedPart.dll", fn.getcwd() .. "/bin/Debug/", "${file}")
+                return fn.input(dbg_path .. "netcoredbg/ManagedPart.dll", fn.getcwd() .. "/bin/Debug/", "file")
             end
         }
     }
