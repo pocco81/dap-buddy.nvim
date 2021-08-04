@@ -29,7 +29,7 @@ M.config = {
 M.installer = {
     before = "",
     install = [[
-		wget https://github.com/Samsung/netcoredbg/releases/latest/download/netcoredbg-linux-bionic-amd64.tar.gz && tar -xvzf netcoredbg-*
+		wget https://github.com/Samsung/netcoredbg/releases/latest/download/netcoredbg-linux-amd64.tar.gz && tar -xvzf netcoredbg-*
 	]],
     uninstall = "simple"
 }
