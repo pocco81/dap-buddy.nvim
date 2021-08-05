@@ -29,7 +29,7 @@ M.config = {
 M.installer = {
     before = "",
     install = [[
-		wget https://github.com/Samsung/netcoredbg/releases/latest/download/netcoredbg-linux-amd64.tar.gz && tar -xvzf netcoredbg-*
+		os=$(uname); if [ "$os" = "Linux" ]; then printf "Detected OS: Linux\n"; wget https://github.com/Samsung/netcoredbg/releases/latest/download/netcoredbg-linux-amd64.tar.gz; elif [ "$os" = "Darwin" ]; then printf "Detected OS: Mac\n"; wget https://github.com/Samsung/netcoredbg/releases/download/1.2.0-786/netcoredbg-osx.tar.gz; fi; tar -xvzf netcoredbg-*
 	]],
     uninstall = "simple"
 }
