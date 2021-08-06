@@ -280,9 +280,9 @@ end
 | `go_delve_dbg`   | Go            | delve                 | Tested       |
 | `php_dbg`        | PHP           | vscode-php-debug      | Tested       |
 | `lua_dbg`        | Lua           | OSSFV                 | Tested       |
+| `dnetcs_dbg`     | .NET, C#      | netcoredbg            | Tested       |
 | `dart_dbg`       | Dart          | dart-code             | Supported    |
 | `jsnode_dbg`     | JavaScript    | node-debug2           | Supported    |
-| `dnetcs_dbg`     | .NET, C#      | netcoredbg            | Supported    |
 | `ruby_vsc_dbg`   | Ruby          | netcoredbg            | Experimental |
 | `ccppr_lldb_dbg` | C, C++, Rust  | lldb-vscode           | Experimental |
 | `ccppr_vsc_dbg`  | C, C++, Rust  | vsc-cpptools          | Experimental |
