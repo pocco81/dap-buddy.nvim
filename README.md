@@ -138,7 +138,7 @@ local dap_install = require("dap-install")
 
 dap_install.setup({
 	installation_path = "/tmp/test_dap_install/",
-	verbosely_call_debuggers = true,
+	verbosely_call_debuggers = false,
 })
 ```
 <br />
@@ -155,7 +155,7 @@ local dap_install = require("dap-install")
 
 dap_install.setup({
 	installation_path = "/tmp/test_dap_install/",
-	verbosely_call_debuggers = true,
+	verbosely_call_debuggers = false,
 })
 EOF
 ```
@@ -209,7 +209,7 @@ Although settings already have self-explanatory names, here is where you can fin
 ## General
 This settings are unrelated to any group and are independent.
 - `installation_path`: (String) path to where the debuggers will be installed. The only condition is that the path **must** end with a forward slash ("/")
-- `verbosely_call_debuggers`: (Boolean) prints a message whenever a debugger that the user it trying to call for configuration isn't installed.
+- `verbosely_call_debuggers`: (Boolean) if true, prints messages when calling a debugger.
 
 ## Debuggers
 To configure the debuggers DAPInstall.nvim provides the `config("<debugger>", {<config>})` function that receives two arguments:

@@ -75,8 +75,8 @@ For init.lua									*dapinstall-for-initlua*
 local dap_install = require("dap-install")
 
 dap_install.setup({
-	installation_path = "/tmp/test_dap_install/",
-	verbosely_call_debuggers = true,
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
+	verbosely_call_debuggers = false,
 })
 ```
 
@@ -88,8 +88,8 @@ lua << EOF
 local dap_install = require("dap-install")
 
 dap_install.setup({
-	installation_path = "/tmp/test_dap_install/",
-	verbosely_call_debuggers = true,
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
+	verbosely_call_debuggers = false,
 })
 EOF
 ```
@@ -141,7 +141,7 @@ Although settings already have self-explanatory names, here is where you can fin
 ## General										*dapinstall-general*
 This settings are unrelated to any group and are independent.
 - `installation_path`: (String) path to where the debuggers will be installed. The only condition is that the path **must** end with a forward slash ("/")
-- `verbosely_call_debuggers`: (Boolean) prints a message whenever a debugger that the user it trying to call for configuration isn't installed.
+- `verbosely_call_debuggers`: (Boolean) if true, prints messages when calling a debugger.
 
 ## Debuggers									*dapinstall-debuggers*
 To configure the debuggers DAPInstall.nvim provides the `config("<debugger>", {<config>})` function that receives two arguments:
