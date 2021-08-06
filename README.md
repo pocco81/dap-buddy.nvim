@@ -137,7 +137,7 @@ The way you setup the settings on your configuration varies on whether you are u
 local dap_install = require("dap-install")
 
 dap_install.setup({
-	installation_path = "/tmp/test_dap_install/",
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
 	verbosely_call_debuggers = false,
 })
 ```
@@ -154,7 +154,7 @@ lua << EOF
 local dap_install = require("dap-install")
 
 dap_install.setup({
-	installation_path = "/tmp/test_dap_install/",
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
 	verbosely_call_debuggers = false,
 })
 EOF
