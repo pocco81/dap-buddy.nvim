@@ -7,32 +7,32 @@
 <p align="center">
     <a href="https://github.com/Pocco81/DAPInstall.nvim/stargazers"
         ><img
-            src="https://img.shields.io/github/stars/Pocco81/DAPInstall.nvim"
+            src="https://img.shields.io/github/stars/Pocco81/DAPInstall.nvim?style=flat-square"
             alt="Repository's starts"
     /></a>
     <a href="https://github.com/Pocco81/DAPInstall.nvim/issues"
         ><img
-            src="https://img.shields.io/github/issues-raw/Pocco81/DAPInstall.nvim"
+            src="https://img.shields.io/github/issues-raw/Pocco81/DAPInstall.nvim?style=flat-square"
             alt="Issues"
     /></a>
     <a href="https://github.com/Pocco81/DAPInstall.nvim/blob/main/LICENSE"
         ><img
-            src="https://img.shields.io/github/license/Pocco81/DAPInstall.nvim"
+            src="https://img.shields.io/github/license/Pocco81/DAPInstall.nvim?style=flat-square"
             alt="License"
     /><br />
     <a href="https://saythanks.io/to/Pocco81%40gmail.com"
         ><img
-            src="https://img.shields.io/badge/say-thanks-modal.svg"
+            src="https://img.shields.io/badge/say-thanks-modal.svg?style=flat-square"
             alt="Say thanks"/></a
     ></a>    <a href="https://github.com/Pocco81/whid.nvim/commits/main"
     <a href="https://github.com/Pocco81/DAPInstall.nvim/commits/main"
 		><img
-			src="https://img.shields.io/github/last-commit/Pocco81/DAPInstall.nvim/dev"
+			src="https://img.shields.io/github/last-commit/Pocco81/DAPInstall.nvim/dev?style=flat-square"
 			alt="Latest commit"
     /></a>
     <a href="https://github.com/Pocco81/DAPInstall.nvim"
         ><img
-            src="https://img.shields.io/github/repo-size/Pocco81/DAPInstall.nvim"
+            src="https://img.shields.io/github/repo-size/Pocco81/DAPInstall.nvim?style=flat-square"
             alt="GitHub repository size"
     /></a>
 </p>
