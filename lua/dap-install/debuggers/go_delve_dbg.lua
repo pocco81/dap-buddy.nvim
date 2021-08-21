@@ -8,6 +8,20 @@ M.dap_info = {
     name_configuration = "go"
 }
 
+---
+-- function to update the adapter config after variable parsing
+-- for delve, we will set the mode to 'test' if the file is a test file
+---
+function enrich_adapter_config(config, cb)
+  local suffix = "_test.go"
+  local match = config.program:sub(-string.len(suffix))
+  if match == suffix then 
+    -- config.arguments = { mode = "test"}
+    config.mode = "test"
+  end
+  cb(config)
+end
+
 M.config = {
     adapters = function(callback, config)
         local handle
@@ -27,7 +41,9 @@ M.config = {
         )
         vim.defer_fn(
             function()
-                callback({type = "server", host = "127.0.0.1", port = port})
+                callback({type = "server", host = "127.0.0.1", port = port,
+                enrich_config = enrich_adapter_config,
+              })
             end,
             100
         )
@@ -41,7 +57,7 @@ M.config = {
         }
     }
 }
-
+ 
 M.installer = {
     before = "",
     install = [[
