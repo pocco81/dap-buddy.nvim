@@ -16,7 +16,6 @@ function enrich_adapter_config(config, cb)
   local suffix = "_test.go"
   local match = config.program:sub(-string.len(suffix))
   if match == suffix then 
-    -- config.arguments = { mode = "test"}
     config.mode = "test"
   end
   cb(config)
