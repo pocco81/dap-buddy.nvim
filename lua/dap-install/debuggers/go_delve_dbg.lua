@@ -45,30 +45,37 @@ M.config = {
     configurations = {
         {
             type = "go",
-            name = "Debug",
+            name = "Attach",
+            request = "attach",
+            processId = require('dap.utils').pick_process,
+            program = "${workspaceFolder}"
+        },
+        {
+            type = "go",
+            name = "Debug curr file",
             request = "launch",
             program = "${file}"
         },
         {
-          type = "go",
-          name = "Debug (go.mode)",
-          request = "launch",
-          program = "./${relativeFileDirname}"
+            type = "go",
+            name = "Debug",
+            request = "launch",
+            program = "${workspaceFolder}"
         },
         {
-          type = "go",
-          name = "Debug test", -- configuration for debugging test files
-          request = "launch",
-          mode = "test",
-          program = "${file}"
+            type = "go",
+            name = "Debug curr test", -- configuration for debugging test files
+            request = "launch",
+            mode = "test",
+            program = "${file}"
         },
         -- works with go.mod packages and sub packages 
         {
-          type = "go",
-          name = "Debug test (go.mod)",
-          request = "launch",
-          mode = "test",
-          program = "./${relativeFileDirname}"
+            type = "go",
+            name = "Debug test",
+            request = "launch",
+            mode = "test",
+            program = "${workspaceFolder}"
         } 
     }
 }
