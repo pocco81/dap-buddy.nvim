@@ -4,6 +4,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 local o = vim.o
 
+local utils_paths = require("dap-install.utils.paths.init")
 local opts = require("dap-install.config").options
 
 function M.list_debuggers()
@@ -13,6 +14,11 @@ function M.list_debuggers()
         end
         print("Successfully listed debuggers!")
     end
+
+	if (utils_paths.assert_dir(opts["installation_path"]) ~= 1) then
+		print("DAPInstall: nothing was found")
+		return
+	end
 
     cmd("new")
     local shell = o.shell

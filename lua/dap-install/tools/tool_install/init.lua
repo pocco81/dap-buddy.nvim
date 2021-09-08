@@ -40,7 +40,7 @@ function M.install_debugger(debugger)
 
         cmd("startinsert")
     else
-        cmd("echo 'DAPInstall: the debugger " .. debugger .. " does not exist/support is under development'")
+		print("DAPInstall: the debugger " .. debugger .. " does not exist/support is under development")
     end
 end
 

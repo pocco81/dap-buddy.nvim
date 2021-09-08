@@ -41,7 +41,7 @@ function M.uninstall_debugger(debugger)
             end
         end
     else
-        cmd("echo 'DAPInstall: the debugger " .. debugger .. " does not exist/support is under development'")
+		print("DAPInstall: the debugger " .. debugger .. " does not exist/support is under development")
     end
 end
 
