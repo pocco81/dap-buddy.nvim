@@ -1,6 +1,6 @@
 local M = {}
 
-local dbg_path = require("dap-install.debuggers_list").debuggers["ccppr_vsc_dbg"][2]
+local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ccppr_vsc_dbg/"
 
 M.dap_info = {
 	name_adapter = "cpptools",
