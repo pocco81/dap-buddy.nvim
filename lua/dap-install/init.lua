@@ -6,7 +6,7 @@ local utils_paths = require("dap-install.utils.paths.init")
 local di_api = require("dap-install.api.debuggers")
 
 function M.setup(custom_opts)
-    require("dap-install.config").set_options(custom_opts)
+    require("dap-install.config.settings").set_options(custom_opts)
 end
 
 local function call_on_dap(debugger, dbg_list, user_config)
