@@ -1,6 +1,6 @@
 local M = {}
 
-local dbg_path = require("dap-install.debuggers_list").debuggers["markdown_dbg"][2]
+local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "markdown/"
 
 M.dap_info = {
     name_adapter = "markdown",

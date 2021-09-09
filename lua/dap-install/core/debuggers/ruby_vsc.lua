@@ -1,6 +1,6 @@
 local M = {}
 
-local dbg_path = require("dap-install.debuggers_list").debuggers["ruby_vsc_dbg"][2]
+local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ruby_vsc/"
 
 M.dap_info = {
     name_adapter = "ruby",

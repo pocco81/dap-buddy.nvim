@@ -1,6 +1,6 @@
 local M = {}
 
-local dbg_path = require("dap-install.debuggers_list").debuggers["go_delve_dbg"][2]
+local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "go_delve/"
 local fn = vim.fn
 
 M.dap_info = {
@@ -69,14 +69,14 @@ M.config = {
             mode = "test",
             program = "${file}"
         },
-        -- works with go.mod packages and sub packages 
+        -- works with go.mod packages and sub packages
         {
             type = "go",
             name = "Debug test",
             request = "launch",
             mode = "test",
             program = "${workspaceFolder}"
-        } 
+        }
     }
 }
 
