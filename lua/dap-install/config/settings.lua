@@ -2,7 +2,6 @@ local settings = {}
 
 settings.options = {
     installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
-	verbosely_call_debuggers = false,
 }
 
 function settings.set_options(opts)

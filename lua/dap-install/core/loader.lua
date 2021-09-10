@@ -23,10 +23,6 @@ end
 function M.config(debugger, config)
 	config = config or {}
 
-	if require("dap-install.config").options["verbosely_call_debuggers"] == true then
-		print("DAPInstall: Passing the " .. debugger .. " to nvim-dap...")
-	end
-
 	if utils_tbl.tbl_has_element(dbg_list, debugger, "index") then
 		if utils_paths.assert_dir(cnf_sett.installation_path .. debugger .. "/") == 1 then
 			load(debugger, config)
