@@ -195,9 +195,9 @@ You could also use a loop to configure every installed debugger like so:
 
 ```lua
 local dap_install = require("dap-install")
-local dbg_list = require("dap-install.debuggers_list").debuggers
+local dbg_list = require("dap-install.api.debuggers").get_installed_debuggers()
 
-for debugger, _ in pairs(dbg_list) do
+for _, debugger in ipairs(dbg_list) do
 	dap_install.config(debugger, {})
 end
 ```
