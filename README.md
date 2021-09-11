@@ -201,13 +201,13 @@ Currently there is only one module available, and it's the `debuggers` module wh
 di_api.get_debuggers()
 ```
 
-> Returns table of available debuggers in which the key is the name of the debugger and the value is another table in which index `1` has name of the module whithin DAPInstall.nvim and index `2` has the installation path.
+> Returns a `table` with debuggers available on DAPInstall.
 
 ```lua
 di_api.get_installed_debuggers()
 ```
 
-> Returns a table with the names of the installed debuggers.
+> Returns a `table` with the debuggers that are installed.
 
 # 🐬 Configuration
 
@@ -276,7 +276,7 @@ You could also use a loop to configure every installed debugger like so:
 
 ```lua
 local dap_install = require("dap-install")
-local dbg_list = require("dap-install.debuggers_list").debuggers
+local dbg_list = require("dap-install.api.debuggers").get_debuggers()
 
 for debugger, _ in pairs(dbg_list) do
 	dap_install.config(debugger, {})
