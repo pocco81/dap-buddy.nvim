@@ -3,7 +3,7 @@ local M = {}
 local utils_paths = require("dap-install.utils.paths.init")
 
 function M.get_debuggers()
-	return require("dap-install.debuggers_list").debuggers
+	return require("dap-install.core.debuggers_list").debuggers
 end
 
 function M.get_installed_debuggers()
