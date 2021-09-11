@@ -29,7 +29,7 @@ M.config = {
 			request = "launch",
 			MIMode = "gdb",
 			miDebuggerServerAddress = "localhost:1234",
-			miDebuggerPath = "/usr/bin/gdb",
+			miDebuggerPath = dbg_path .. "gdb-10.2/gdb/gdb",
 			cwd = "${workspaceFolder}",
 			program = function()
 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
@@ -46,6 +46,10 @@ M.installer = {
 		unzip cpptools-linux.zip
 		chmod +x extension/debugAdapters/bin/OpenDebugAD7
 		cp extension/cppdbg.ad7Engine.json extension/debugAdapters/bin/nvim-dap.ad7Engine.json
+		wget https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz && tar -xvf gdb-10.2.tar.xz
+		cd gdb-10.2/
+		./configure
+		make
 	]],
 	uninstall = "simple",
 }
