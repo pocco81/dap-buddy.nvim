@@ -16,7 +16,14 @@ local function load(debugger, user_config)
 	end
 
 	if dbg.config["configurations"] ~= nil then
-		dap.configurations[dbg.dap_info["name_configuration"]] = final_config["configurations"]
+		local name_configurations = dbg.dap_info["name_configuration"]
+		if (type(name_configurations) == "table") then
+			for _, lang in pairs(name_configurations) do
+				dap.configurations[lang] = final_config["configurations"]
+			end
+		else
+			dap.configurations[name_configurations] = final_config["configurations"]
+		end
 	end
 end
 

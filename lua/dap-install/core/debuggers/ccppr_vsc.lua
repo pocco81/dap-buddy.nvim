@@ -1,16 +1,16 @@
 local M = {}
 
-local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ccppr_vsc_dbg/"
+local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ccppr_vsc/"
 
 M.dap_info = {
 	name_adapter = "cpptools",
-	name_configuration = "cpp",
+	name_configuration = {"c", "cpp", "rust"},
 }
 
 M.config = {
 	adapters = {
 		type = "executable",
-		command = dbg_path .. "extension/debugAdapters/OpenDebugAD7",
+		command = dbg_path .. "extension/debugAdapters/bin/OpenDebugAD7",
 	},
 	configurations = {
 		{
