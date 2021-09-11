@@ -40,6 +40,7 @@ M.config = {
 
 M.installer = {
 	before = "",
+	dependencies = {{["gdb"] = true}},
 	install = [[
 		wget $(curl -s https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest | grep browser_ | cut -d\" -f 4 | grep linux.vsix)
 		mv cpptools-linux.vsix cpptools-linux.zip
