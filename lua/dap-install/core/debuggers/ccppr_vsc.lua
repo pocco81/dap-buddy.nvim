@@ -17,6 +17,7 @@ M.config = {
 			name = "Launch file",
 			type = "cpptools",
 			request = "launch",
+			miDebuggerPath = dbg_path .. "extension/debugAdapters/bin/OpenDebugAD7",
 			program = function()
 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 			end,
