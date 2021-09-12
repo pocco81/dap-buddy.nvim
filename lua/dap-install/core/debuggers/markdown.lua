@@ -3,7 +3,7 @@ local M = {}
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "markdown/"
 
 M.dap_info = {
-	name_adapter = "markdown",
+	name_adapter = {"mock", "markdown"},
 	name_configuration = "markdown",
 }
 

@@ -12,7 +12,14 @@ local function load(debugger, user_config)
 	local final_config = vim.tbl_deep_extend("force", dbg.config, user_config)
 
 	if dbg.config["adapters"] ~= nil then
-		dap.adapters[dbg.dap_info["name_adapter"]] = final_config["adapters"]
+		local name_adapter = dbg.dap_info["name_adapter"]
+		if (type(name_adapter) == "table") then
+			for _, adapter in pairs(name_adapter) do
+				dap.configurations[adapter] = final_config["configurations"]
+			end
+		else
+			dap.adapters[name_adapter] = final_config["adapters"]
+		end
 	end
 
 	if dbg.config["configurations"] ~= nil then
