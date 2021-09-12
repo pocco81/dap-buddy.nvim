@@ -1,14 +1,13 @@
 local M = {}
 
-local cmd = vim.cmd
 local fn = vim.fn
-local o = vim.o
 
 local utils_tbl = require("dap-install.utils.tables.init")
 local utils_paths = require("dap-install.utils.paths.init")
 local dbg_list = require("dap-install.core.debuggers_list").debuggers
 local cnf_sys = require("dap-install.config.sys").options
 local cnf_sett = require("dap-install.config.settings").options
+local util_term = require("dap-install.utils.term")
 
 function M.install_debugger(debugger)
 	if utils_tbl.tbl_has_element(dbg_list, debugger, "index") then
@@ -32,15 +31,7 @@ function M.install_debugger(debugger)
 			print("DAPInstall: Successfully installed the debugger " .. debugger .. "!")
 		end
 
-		cmd("new")
-		local shell = o.shell
-		o.shell = "/bin/bash"
-
-		cmd(dbg.installer["before"])
-		fn.termopen("set -e\n" .. dbg.installer["install"], { ["cwd"] = dbg_dir, ["on_exit"] = onExit })
-		o.shell = shell
-
-		cmd("startinsert")
+		util_term.spawn_term(dbg.installer["install"], { ["cwd"] = dbg_dir, ["on_exit"] = onExit })
 	else
 		print("DAPInstall: the debugger " .. debugger .. " does not exist/support is under development")
 	end
