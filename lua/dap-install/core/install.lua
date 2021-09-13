@@ -8,6 +8,7 @@ local dbg_list = require("dap-install.core.debuggers_list").debuggers
 local cnf_sys = require("dap-install.config.sys").options
 local cnf_sett = require("dap-install.config.settings").options
 local util_term = require("dap-install.utils.term")
+local handlers = require("dap-install.core.handlers")
 
 function M.install_debugger(debugger)
 	if utils_tbl.tbl_has_element(dbg_list, debugger, "index") then
@@ -24,14 +25,16 @@ function M.install_debugger(debugger)
 
 		fn.mkdir("" .. dbg_dir .. "", "p")
 
-		local function onExit(_, code)
-			if code ~= 0 then
-				error("DAPInstall: Could not install the debugger " .. debugger .. "!")
-			end
-			print("DAPInstall: Successfully installed the debugger " .. debugger .. "!")
-		end
-
-		util_term.spawn_term(dbg.installer["install"], { ["cwd"] = dbg_dir, ["on_exit"] = onExit })
+		util_term.spawn_term(
+			dbg.installer["install"],
+			{
+				["cwd"] = dbg_dir,
+				["on_exit"] = handlers.exit(
+					"DAPInstall: Could not install the debugger " .. debugger .. "!",
+					"DAPInstall: Successfully installed the debugger " .. debugger .. "!"
+				),
+			}
+		)
 	else
 		print("DAPInstall: the debugger " .. debugger .. " does not exist/support is under development")
 	end
