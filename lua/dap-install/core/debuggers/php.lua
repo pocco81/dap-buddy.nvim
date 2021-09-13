@@ -32,7 +32,7 @@ M.installer = {
 	uninstall = [[
 		cd vscode-php-debug &&  npm uninstall .
 		cd ../..
-		rm -rf php_dbg
+		rm -rf php
 	]],
 }
 

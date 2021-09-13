@@ -37,7 +37,7 @@ M.installer = {
 	uninstall = [[
 		cd vscode-node-debug2 && npm uninstall .
 		cd ../..
-		rm -rf jsnode_dbg
+		rm -rf jsnode
 	]],
 }
 
