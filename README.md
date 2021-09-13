@@ -53,6 +53,7 @@
 
 -   [Features](#-features)
 -   [Notices](#-notices)
+-   [Caveats](#-caveats)
 -   [Installation](#-installation)
     -   [Prerequisites](#prerequisites)
     -   [Adding the plugin](#adding-the-plugin)
@@ -88,6 +89,10 @@ Checkout the [CHANGELOG.md](https://github.com/Pocco81/DAPInstall.nvim/blob/main
 
 -   **09-09-21**: Refactored and formatted code.
 -   **26-07-21**: Added API.
+
+# 👻 Caveats
+
+-   Currently only works for \*nix systems (Linux, MacOS, ...) and Windows through WSL. Native support for Windows is coming soon.
 
 # 📦 Installation
 
@@ -349,6 +354,7 @@ For more convoluted language, see the [LICENSE file](https://github.com/Pocco81/
 **High Priority**
 
 -   Test every debugger
+-   Add support for Windows?
 
 **Low Priority**
 
