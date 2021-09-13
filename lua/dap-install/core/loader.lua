@@ -15,7 +15,7 @@ local function load(debugger, user_config)
 		local name_adapter = dbg.dap_info["name_adapter"]
 		if (type(name_adapter) == "table") then
 			for _, adapter in pairs(name_adapter) do
-				dap.adapters[adapter] = final_config["configurations"]
+				dap.adapters[adapter] = final_config["adapters"]
 			end
 		else
 			dap.adapters[name_adapter] = final_config["adapters"]
