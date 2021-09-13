@@ -40,7 +40,7 @@ M.installer = {
 	uninstall = [[
 		cd vscode-chrome-debug && npm uninstall .
 		cd ../..
-		rm -rf vscode-chrome-debug
+		rm -rf chrome
 	]],
 }
 
