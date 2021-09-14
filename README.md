@@ -92,7 +92,7 @@ Checkout the [CHANGELOG.md](https://github.com/Pocco81/DAPInstall.nvim/blob/main
 
 # 👻 Caveats
 
--   Currently only works for \*nix systems (Linux, MacOS, ...) and Windows through WSL. Native support for Windows is coming soon.
+-   Currently it only works for \*nix systems (Linux, MacOS, ...) and Windows through WSL. Native support for Windows is coming soon.
 
 # 📦 Installation
 
