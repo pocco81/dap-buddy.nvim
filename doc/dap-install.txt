@@ -220,6 +220,7 @@ end
 | `scala_dbg`      | Scala         | nvim-metals           | Unsupported  |
 | `lua_dbg`        | Lua           | OSSFV                 | Tested       |
 | `dnetcs_dbg`     | .NET, C#      | netcoredbg            | Supported    |
+| `chrome_dbg` | Javascriptreact, Typescriptreact | vscode-chrome-debug | Supported |
 
 * `Tested` : Fully supported
 * `Supported` : Fully supported, but needs testing.

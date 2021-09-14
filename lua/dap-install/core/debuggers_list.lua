@@ -13,6 +13,7 @@ M.debuggers = {
 	["ccppr_vsc"] = { "c", "cpp", "cpp_matchup", "rust" },
 	["dart"] = { "dart" },
 	["ruby_vsc"] = { "ruby" },
+	["chrome"] = { "javascriptreact", "typescriptreact" },
 }
 
 return M
