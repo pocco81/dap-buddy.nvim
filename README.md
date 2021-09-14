@@ -290,23 +290,24 @@ end
 
 ### List of debuggers
 
-| DI. Name     | Pro. Language | Debugger              | Status       |
-| ------------ | ------------- | --------------------- | ------------ |
-| `python`     | Python        | debugpy               | Tested       |
-| `ccppr_vsc`  | C, C++, Rust  | vsc-cpptools          | Tested       |
-| `go`         | Go            | delve, vscode-go      | Tested       |
-| `php`        | PHP           | vscode-php-debug      | Tested       |
-| `lua`        | Lua           | OSSFV                 | Tested       |
-| `dnetcs`     | .NET, C#      | netcoredbg            | Tested       |
-| `go_delve`   | Go            | delve                 | Tested       |
-| `dart`       | Dart          | dart-code             | Supported    |
-| `jsnode`     | JavaScript    | node-debug2           | Supported    |
-| `ruby_vsc`   | Ruby          | netcoredbg            | Experimental |
-| `ccppr_lldb` | C, C++, Rust  | lldb-vscode           | Experimental |
-| `markdown`   | Markdown      | mockdebug             | Experimental |
-| `java`       | Java          | java-debug            | Unsupported  |
-| `haskell`    | Haskell       | haskell-debug-adapter | Unsupported  |
-| `scala`      | Scala         | nvim-metals           | Unsupported  |
+| DI. Name     | Pro. Language                    | Debugger              | Status       |
+| ------------ | -------------------------------- | --------------------- | ------------ |
+| `python`     | Python                           | debugpy               | Tested       |
+| `ccppr_vsc`  | C, C++, Rust                     | vsc-cpptools          | Tested       |
+| `go`         | Go                               | delve, vscode-go      | Tested       |
+| `php`        | PHP                              | vscode-php-debug      | Tested       |
+| `lua`        | Lua                              | OSSFV                 | Tested       |
+| `dnetcs`     | .NET, C#                         | netcoredbg            | Tested       |
+| `go_delve`   | Go                               | delve                 | Tested       |
+| `chrome`     | JavaScriptReact, TypeScriptReact | vscode-chrome-debug   | Tested       |
+| `dart`       | Dart                             | dart-code             | Supported    |
+| `jsnode`     | JavaScript                       | node-debug2           | Supported    |
+| `ruby_vsc`   | Ruby                             | netcoredbg            | Experimental |
+| `ccppr_lldb` | C, C++, Rust                     | lldb-vscode           | Experimental |
+| `markdown`   | Markdown                         | mockdebug             | Experimental |
+| `java`       | Java                             | java-debug            | Unsupported  |
+| `haskell`    | Haskell                          | haskell-debug-adapter | Unsupported  |
+| `scala`      | Scala                            | nvim-metals           | Unsupported  |
 
 -   `Tested`: Fully supported
 -   `Supported`: Fully supported, but needs testing.
