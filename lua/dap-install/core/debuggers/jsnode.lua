@@ -3,6 +3,10 @@ local M = {}
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "jsnode/"
 local fn = vim.fn
 
+M.details = {
+	dependencies = {"npm"}
+}
+
 M.dap_info = {
 	name_adapter = "node2",
 	name_configuration = "javascript",

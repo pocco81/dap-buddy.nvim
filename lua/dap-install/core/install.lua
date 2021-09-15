@@ -19,6 +19,14 @@ function M.install_debugger(debugger)
 		local dbg = require(cnf_sys.dbgs_path .. debugger)
 		local dbg_dir = cnf_sett.installation_path .. debugger .. "/"
 
+		print("Checking dependencies...")
+		local are_deps_met, missing_deps = handlers.dependencies(dbg["details"]["dependencies"])
+
+		if not handlers.dependencies(are_deps_met) then
+			print("Error: some dependencies were not met. In order to install this debugger you must install the following programs: " .. table.concat(missing_deps, ", "))
+			return
+		end
+
 		if utils_paths.assert_dir(dbg_dir) == 1 then
 			fn.delete("" .. dbg_dir .. "", "rf")
 		end
