@@ -24,16 +24,13 @@ function M.uninstall_debugger(debugger)
 				fn.delete("" .. dbg_dir .. "", "rf")
 				print("DAPInstall: Successfully uninstalled the debugger " .. debugger .. "!")
 			else
-				util_term.spawn_term(
-					dbg.installer["uninstall"],
-					{
-						["cwd"] = dbg_dir,
-						["on_exit"] = handlers.exit(
-							"DAPInstall: Could not uninstall the debugger " .. debugger .. "!",
-							"DAPInstall: Successfully uninstalled the debugger " .. debugger .. "!"
-						),
-					}
-				)
+				util_term.spawn_term(dbg.installer["uninstall"], {
+					["cwd"] = dbg_dir,
+					["on_exit"] = handlers.exit(
+						"DAPInstall: Could not uninstall the debugger " .. debugger .. "!",
+						"DAPInstall: Successfully uninstalled the debugger " .. debugger .. "!"
+					),
+				})
 			end
 		end
 	else
