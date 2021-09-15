@@ -19,11 +19,12 @@ function M.install_debugger(debugger)
 		local dbg = require(cnf_sys.dbgs_path .. debugger)
 		local dbg_dir = cnf_sett.installation_path .. debugger .. "/"
 
-		print("Checking dependencies...")
 		local are_deps_met, missing_deps = handlers.dependencies(dbg["details"]["dependencies"])
-
 		if not are_deps_met then
-			print("Error: some dependencies were not met. In order to install this debugger you must install the following programs: " .. table.concat(missing_deps, ", "))
+			print(
+				"Error: some dependencies were not met. In order to install this debugger you must install the following programs: "
+					.. table.concat(missing_deps, ", ")
+			)
 			return
 		end
 
@@ -33,16 +34,13 @@ function M.install_debugger(debugger)
 
 		fn.mkdir("" .. dbg_dir .. "", "p")
 
-		util_term.spawn_term(
-			dbg.installer["install"],
-			{
-				["cwd"] = dbg_dir,
-				["on_exit"] = handlers.exit(
-					"DAPInstall: Could not install the debugger " .. debugger .. "!",
-					"DAPInstall: Successfully installed the debugger " .. debugger .. "!"
-				),
-			}
-		)
+		util_term.spawn_term(dbg.installer["install"], {
+			["cwd"] = dbg_dir,
+			["on_exit"] = handlers.exit(
+				"DAPInstall: Could not install the debugger " .. debugger .. "!",
+				"DAPInstall: Successfully installed the debugger " .. debugger .. "!"
+			),
+		})
 	else
 		print("DAPInstall: the debugger " .. debugger .. " does not exist/support is under development")
 	end

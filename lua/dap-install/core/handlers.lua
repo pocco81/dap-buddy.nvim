@@ -5,7 +5,7 @@ local M = {}
 ---@param msg_success string
 ---@return function
 function M.exit(msg_error, msg_success)
-	return function (_, code)
+	return function(_, code)
 		if code ~= 0 then
 			error(msg_error)
 		end
@@ -17,8 +17,8 @@ function M.dependencies(dependencies)
 	local util_sys = require("dap-install.utils.sys")
 	local unmet_dps = {}
 
-	if (dependencies ~= nil) then
-		if (type(dependencies) == "table") then
+	if dependencies ~= nil then
+		if type(dependencies) == "table" then
 			for _, dep in pairs(dependencies) do
 				if not (util_sys.program_exists(dep)) then
 					table.insert(unmet_dps, dep)
