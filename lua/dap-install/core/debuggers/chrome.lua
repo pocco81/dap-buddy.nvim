@@ -2,11 +2,15 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "chrome/"
 
+M.details = {
+	dependencies = { "npm", "git" },
+}
+
 M.dap_info = {
 	name_adapter = "chrome",
 	name_configuration = {
-		'javascriptreact',
-		'typescriptreact'
+		"javascriptreact",
+		"typescriptreact",
 	},
 }
 
@@ -14,7 +18,7 @@ M.config = {
 	adapters = {
 		type = "executable",
 		command = "node",
-		args = {dbg_path .. "/vscode-chrome-debug/out/src/chromeDebug.js"}
+		args = { dbg_path .. "/vscode-chrome-debug/out/src/chromeDebug.js" },
 	},
 	configurations = {
 		{
@@ -25,8 +29,8 @@ M.config = {
 			sourceMaps = true,
 			protocol = "inspector",
 			port = 9222,
-			webRoot = "${workspaceFolder}"
-		}
+			webRoot = "${workspaceFolder}",
+		},
 	},
 }
 

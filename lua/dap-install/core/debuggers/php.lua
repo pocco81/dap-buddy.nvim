@@ -2,6 +2,10 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "php/"
 
+M.details = {
+	dependencies = { "git", "npm" },
+}
+
 M.dap_info = {
 	name_adapter = "php",
 	name_configuration = "php",

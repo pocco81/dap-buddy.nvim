@@ -4,6 +4,10 @@ local dbg_path = require("dap-install.config.settings").options["installation_pa
 local fn = vim.fn
 local util_sys = require("dap-install.utils.sys")
 
+M.details = {
+	dependencies = { "python", "pip" },
+}
+
 M.dap_info = {
 	name_adapter = "python",
 	name_configuration = "python",

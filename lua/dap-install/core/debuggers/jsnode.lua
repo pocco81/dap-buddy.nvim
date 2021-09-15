@@ -4,7 +4,7 @@ local dbg_path = require("dap-install.config.settings").options["installation_pa
 local fn = vim.fn
 
 M.details = {
-	dependencies = { "npm" },
+	dependencies = { "npm", "git" },
 }
 
 M.dap_info = {

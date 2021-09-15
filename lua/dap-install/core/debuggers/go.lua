@@ -3,6 +3,10 @@ local M = {}
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "go/"
 local fn = vim.fn
 
+M.details = {
+	dependencies = { "go", "npm" },
+}
+
 M.dap_info = {
 	name_adapter = "go",
 	name_configuration = "go",
