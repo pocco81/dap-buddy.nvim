@@ -308,6 +308,7 @@ end
 | `java`       | Java                             | java-debug            | N/A                     | Unsupported  |
 | `haskell`    | Haskell                          | haskell-debug-adapter | N/A                     | Unsupported  |
 | `scala`      | Scala                            | nvim-metals           | N/A                     | Unsupported  |
+| `unity`      | Unity3D, C#     |                | UnityDebug            | `mono`, `wget`, `unzip` | Experimental |
 
 -   `Tested`: Fully supported
 -   `Supported`: Fully supported, but needs testing.

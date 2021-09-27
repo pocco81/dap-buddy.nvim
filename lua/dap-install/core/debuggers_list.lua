@@ -14,6 +14,7 @@ M.debuggers = {
 	["dart"] = { "dart" },
 	["ruby_vsc"] = { "ruby" },
 	["chrome"] = { "javascriptreact", "typescriptreact" },
+ 	["unity"] = { "unity" },
 }
 
 return M
