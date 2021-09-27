@@ -302,6 +302,7 @@ end
 | `chrome`     | JavaScriptReact, TypeScriptReact | vscode-chrome-debug   | `npm`, `git`            | Tested       |
 | `dart`       | Dart                             | dart-code             | `git`, `npx`            | Supported    |
 | `jsnode`     | JavaScript                       | node-debug2           | `npm`, `git`            | Supported    |
+| `unity`      | Unity3D, C#     |                | UnityDebug            | `mono`, `wget`, `unzip` | Supported |
 | `ruby_vsc`   | Ruby                             | netcoredbg            | `git`, `npm`            | Experimental |
 | `ccppr_lldb` | C, C++, Rust                     | lldb-vscode           | N/A                     | Experimental |
 | `markdown`   | Markdown                         | mockdebug             | N/A                     | Experimental |
