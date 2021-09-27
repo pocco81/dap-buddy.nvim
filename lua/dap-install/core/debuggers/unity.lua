@@ -3,7 +3,7 @@ local M = {}
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "unity/"
 
 M.details = {
-	dependencies = {}, --{ "wget", "unzip" },
+	dependencies = { "mono", "wget", "unzip" },
 }
 
 M.dap_info = {
