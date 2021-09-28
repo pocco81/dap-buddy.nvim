@@ -22,7 +22,7 @@ M.config = {
 		{
 			type = "node2",
 			request = "launch",
-			program = "${file}",
+			program = "${workspaceFolder}/${file}",
 			cwd = fn.getcwd(),
 			sourceMaps = true,
 			protocol = "inspector",
