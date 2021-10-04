@@ -38,7 +38,7 @@ end
 function M.program_exists(program)
 	if
 		M.return_exe([[if command -v ]] .. program .. [[ &> /dev/null ; then echo "exists" ; fi
-]], false) == "exists"
+]], false):find("exists",1,true) == 1
 	then
 		return true
 	end
