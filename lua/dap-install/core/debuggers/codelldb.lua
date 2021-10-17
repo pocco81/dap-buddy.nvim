@@ -1,4 +1,6 @@
 local M = {}
+local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "codelldb/"
+local codelldb_path = dbg_path .. "extension/adapter/codelldb"
 
 M.dap_info = {
 	name_adapter = "codelldb",
@@ -13,8 +15,6 @@ M.config = {
 	adapters = function(callback, config)
 		local stdout = vim.loop.new_pipe(false)
 		local stderr = vim.loop.new_pipe(false)
-
-		local cmd = "./codelldb/extension/adapter/codelldb"
 
 		local handle, pid_or_err
 		local opts = {
@@ -32,7 +32,7 @@ M.config = {
 			opts.args[2] = config["liblldb"]
 		end
 
-		handle, pid_or_err = vim.loop.spawn(cmd, opts, function(code)
+		handle, pid_or_err = vim.loop.spawn(codelldb_path, opts, function(code)
 			stdout:close()
 			stderr:close()
 			handle:close()
