@@ -294,13 +294,13 @@ end
 | ------------ | -------------------------------- | --------------------- | ----------------------- | ------------ |
 | `python`     | Python                           | debugpy               | `python`, `pip`         | Tested       |
 | `ccppr_vsc`  | C, C++, Rust                     | vsc-cpptools          | `wget`, `unzip`, `make` | Tested       |
-| `codelldb`   | C, C++, Rust, Swift              | codelldb              | `wget`, `unzip`         | Tested       |
 | `go`         | Go                               | delve, vscode-go      | `go`, `npm`             | Tested       |
 | `php`        | PHP                              | vscode-php-debug      | `git`, `npm`            | Tested       |
 | `lua`        | Lua                              | OSSFV                 | N/A                     | Tested       |
 | `dnetcs`     | .NET, C#                         | netcoredbg            | `wget`, `tar`           | Tested       |
 | `go_delve`   | Go                               | delve                 | `go`                    | Tested       |
 | `chrome`     | JavaScriptReact, TypeScriptReact | vscode-chrome-debug   | `npm`, `git`            | Tested       |
+| `codelldb`   | C, C++, Rust, Swift              | codelldb              | `wget`, `unzip`         | Tested       |
 | `dart`       | Dart                             | dart-code             | `git`, `npx`            | Supported    |
 | `jsnode`     | JavaScript                       | node-debug2           | `npm`, `git`            | Supported    |
 | `unity`      | Unity3D, C#                      | UnityDebug            | `mono`, `wget`, `unzip` | Supported    |
