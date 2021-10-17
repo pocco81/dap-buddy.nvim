@@ -18,7 +18,7 @@ function M.install_debugger(debugger)
 
 		local dbg = require(cnf_sys.dbgs_path .. debugger)
 		local dbg_dir = cnf_sett.installation_path .. debugger .. "/"
-        
+
 		local depend = nil
 		local succ, rval = pcall(function()
 			depend = dbg["details"]["dependencies"]

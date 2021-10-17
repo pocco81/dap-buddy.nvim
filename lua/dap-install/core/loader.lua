@@ -13,7 +13,7 @@ local function load(debugger, user_config)
 
 	if dbg.config["adapters"] ~= nil then
 		local name_adapter = dbg.dap_info["name_adapter"]
-		if (type(name_adapter) == "table") then
+		if type(name_adapter) == "table" then
 			for _, adapter in pairs(name_adapter) do
 				dap.adapters[adapter] = final_config["adapters"]
 			end
@@ -24,7 +24,7 @@ local function load(debugger, user_config)
 
 	if dbg.config["configurations"] ~= nil then
 		local name_configurations = dbg.dap_info["name_configuration"]
-		if (type(name_configurations) == "table") then
+		if type(name_configurations) == "table" then
 			for _, lang in pairs(name_configurations) do
 				dap.configurations[lang] = final_config["configurations"]
 			end

@@ -18,15 +18,12 @@ function M.list_debuggers()
 	local shell = o.shell
 	o.shell = "/bin/bash"
 
-	fn.termopen(
-		"set -e\n ls -Gg " .. cnf_sett["installation_path"] .. "",
-		{
-			["on_exit"] = handlers.exit(
-				"DAPInstall: Could not list the debuggers!",
-				"DAPInstall: Successfully listed debuggers!"
-			),
-		}
-	)
+	fn.termopen("set -e\n ls -Gg " .. cnf_sett["installation_path"] .. "", {
+		["on_exit"] = handlers.exit(
+			"DAPInstall: Could not list the debuggers!",
+			"DAPInstall: Successfully listed debuggers!"
+		),
+	})
 	o.shell = shell
 
 	cmd("startinsert")
