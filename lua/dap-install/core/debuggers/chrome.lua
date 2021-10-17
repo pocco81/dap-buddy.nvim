@@ -11,7 +11,7 @@ M.dap_info = {
 	name_configuration = {
 		"javascriptreact",
 		"typescriptreact",
-      "typescript",
+		"typescript",
 	},
 }
 
