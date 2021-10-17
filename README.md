@@ -53,6 +53,7 @@
 
 -   [Features](#-features)
 -   [Notices](#-notices)
+-   [Caveats](#-caveats)
 -   [Installation](#-installation)
     -   [Prerequisites](#prerequisites)
     -   [Adding the plugin](#adding-the-plugin)
@@ -88,6 +89,10 @@ Checkout the [CHANGELOG.md](https://github.com/Pocco81/DAPInstall.nvim/blob/main
 
 -   **09-09-21**: Refactored and formatted code.
 -   **26-07-21**: Added API.
+
+# 👻 Caveats
+
+-   Currently it only works for \*nix systems (Linux, MacOS, ...) and Windows through WSL. Native support for Windows is coming soon.
 
 # 📦 Installation
 
@@ -181,7 +186,7 @@ This depends on your plugin manager. If, for example, you are using Packer.nvim,
 
 All the commands follow the _camel casing_ naming convention and have the `DI` prefix so that it's easy to remember that they are part of the DAPInstall.nvim plugin. These are all of them:
 
--   `:DIInstall <debugger>` installs `<debugger>`.
+-   `:DIInstall <debugger>` asserts dependencies and if they are met, installs `<debugger>`.
 -   `:DIUninstall <debugger>` uninstalls `<debugger>`.
 -   `:DIList` lists installed debuggers.
 
@@ -285,23 +290,25 @@ end
 
 ### List of debuggers
 
-| DI. Name     | Pro. Language | Debugger              | Status       |
-| ------------ | ------------- | --------------------- | ------------ |
-| `python`     | Python        | debugpy               | Tested       |
-| `ccppr_vsc`  | C, C++, Rust  | vsc-cpptools          | Tested       |
-| `go`         | Go            | delve, vscode-go      | Tested       |
-| `php`        | PHP           | vscode-php-debug      | Tested       |
-| `lua`        | Lua           | OSSFV                 | Tested       |
-| `dnetcs`     | .NET, C#      | netcoredbg            | Tested       |
-| `go_delve`   | Go            | delve                 | Tested       |
-| `dart`       | Dart          | dart-code             | Supported    |
-| `jsnode`     | JavaScript    | node-debug2           | Supported    |
-| `ruby_vsc`   | Ruby          | netcoredbg            | Experimental |
-| `ccppr_lldb` | C, C++, Rust  | lldb-vscode           | Experimental |
-| `markdown`   | Markdown      | mockdebug             | Experimental |
-| `java`       | Java          | java-debug            | Unsupported  |
-| `haskell`    | Haskell       | haskell-debug-adapter | Unsupported  |
-| `scala`      | Scala         | nvim-metals           | Unsupported  |
+| DI. Name     | Pro. Language                    | Debugger              | Dependencies            | Status       |
+| ------------ | -------------------------------- | --------------------- | ----------------------- | ------------ |
+| `python`     | Python                           | debugpy               | `python`, `pip`         | Tested       |
+| `ccppr_vsc`  | C, C++, Rust                     | vsc-cpptools          | `wget`, `unzip`, `make` | Tested       |
+| `go`         | Go                               | delve, vscode-go      | `go`, `npm`             | Tested       |
+| `php`        | PHP                              | vscode-php-debug      | `git`, `npm`            | Tested       |
+| `lua`        | Lua                              | OSSFV                 | N/A                     | Tested       |
+| `dnetcs`     | .NET, C#                         | netcoredbg            | `wget`, `tar`           | Tested       |
+| `go_delve`   | Go                               | delve                 | `go`                    | Tested       |
+| `chrome`     | JavaScriptReact, TypeScriptReact | vscode-chrome-debug   | `npm`, `git`            | Tested       |
+| `dart`       | Dart                             | dart-code             | `git`, `npx`            | Supported    |
+| `jsnode`     | JavaScript                       | node-debug2           | `npm`, `git`            | Supported    |
+| `unity`      | Unity3D, C#     |                | UnityDebug            | `mono`, `wget`, `unzip` | Supported |
+| `ruby_vsc`   | Ruby                             | netcoredbg            | `git`, `npm`            | Experimental |
+| `ccppr_lldb` | C, C++, Rust                     | lldb-vscode           | N/A                     | Experimental |
+| `markdown`   | Markdown                         | mockdebug             | N/A                     | Experimental |
+| `java`       | Java                             | java-debug            | N/A                     | Unsupported  |
+| `haskell`    | Haskell                          | haskell-debug-adapter | N/A                     | Unsupported  |
+| `scala`      | Scala                            | nvim-metals           | N/A                     | Unsupported  |
 
 -   `Tested`: Fully supported
 -   `Supported`: Fully supported, but needs testing.
@@ -349,6 +356,7 @@ For more convoluted language, see the [LICENSE file](https://github.com/Pocco81/
 **High Priority**
 
 -   Test every debugger
+-   Add support for Windows?
 
 **Low Priority**
 

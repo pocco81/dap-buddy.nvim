@@ -3,6 +3,10 @@ local M = {}
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "dnetcs/"
 local fn = vim.fn
 
+M.details = {
+	dependencies = { "wget", "tar" },
+}
+
 M.dap_info = {
 	name_adapter = "netcoredbg",
 	name_configuration = "cs",
@@ -29,7 +33,7 @@ M.config = {
 M.installer = {
 	before = "",
 	install = [[
-		os=$(uname); if [ "$os" = "Linux" ]; then printf "Detected OS: Linux\n"; wget https://github.com/Samsung/netcoredbg/releases/latest/download/netcoredbg-linux-amd64.tar.gz; elif [ "$os" = "Darwin" ]; then printf "Detected OS: Mac\n"; wget https://github.com/Samsung/netcoredbg/releases/download/1.2.0-786/netcoredbg-osx.tar.gz; fi; tar -xvzf netcoredbg-*
+		os=$(uname); if [ "$os" = "Linux" ]; then printf "Detected OS: Linux\n"; wget https://github.com/Samsung/netcoredbg/releases/latest/download/netcoredbg-linux-amd64_fixed.tar.gz; elif [ "$os" = "Darwin" ]; then printf "Detected OS: Mac\n"; wget https://github.com/Samsung/netcoredbg/releases/download/1.2.0-786/netcoredbg-osx.tar.gz; fi; tar -xvzf netcoredbg-*
 	]],
 	uninstall = "simple",
 }

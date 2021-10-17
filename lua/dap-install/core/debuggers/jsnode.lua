@@ -3,6 +3,10 @@ local M = {}
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "jsnode/"
 local fn = vim.fn
 
+M.details = {
+	dependencies = { "npm", "git" },
+}
+
 M.dap_info = {
 	name_adapter = "node2",
 	name_configuration = "javascript",
@@ -18,7 +22,7 @@ M.config = {
 		{
 			type = "node2",
 			request = "launch",
-			program = "${file}",
+			program = "${workspaceFolder}/${file}",
 			cwd = fn.getcwd(),
 			sourceMaps = true,
 			protocol = "inspector",
@@ -37,7 +41,7 @@ M.installer = {
 	uninstall = [[
 		cd vscode-node-debug2 && npm uninstall .
 		cd ../..
-		rm -rf jsnode_dbg
+		rm -rf jsnode
 	]],
 }
 

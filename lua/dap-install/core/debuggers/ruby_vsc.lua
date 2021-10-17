@@ -2,6 +2,10 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ruby_vsc/"
 
+M.details = {
+	dependencies = { "wget", "unzip" },
+}
+
 M.dap_info = {
 	name_adapter = "ruby",
 	name_configuration = "ruby",

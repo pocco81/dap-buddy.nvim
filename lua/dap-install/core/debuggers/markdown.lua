@@ -2,8 +2,12 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "markdown/"
 
+M.details = {
+	dependencies = { "git", "npm" },
+}
+
 M.dap_info = {
-	name_adapter = "markdown",
+	name_adapter = { "mock", "markdown" },
 	name_configuration = "markdown",
 }
 
@@ -32,12 +36,12 @@ M.installer = {
 	install = [[
 		git clone https://github.com/Microsoft/vscode-mock-debug.git
 		cd vscode-mock-debug
-		sudo npm install
+		npm install
 	]],
 	uninstall = [[
-		cd vscode-mock-debug && sudo npm uninstall .
+		cd vscode-mock-debug && npm uninstall .
 		cd ../..
-		sudo rm -rf markdown_dbg
+		rm -rf markdown_dbg
 	]],
 }
 

@@ -2,6 +2,10 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "dart/"
 
+M.details = {
+	dependencies = { "git", "npx" },
+}
+
 M.dap_info = {
 	name_adapter = "dart",
 	name_configuration = "dart",
@@ -30,7 +34,7 @@ M.installer = {
 	before = "",
 	install = [[
 		git clone https://github.com/Dart-Code/Dart-Code
-		cd Dart-code && sudo npx webpack --mode production
+		cd Dart-code && npx webpack --mode production
 	]],
 	uninstall = "simple",
 }

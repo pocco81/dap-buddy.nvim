@@ -2,9 +2,13 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ccppr_vsc/"
 
+M.details = {
+	dependencies = { "wget", "unzip", "make" },
+}
+
 M.dap_info = {
 	name_adapter = "cpptools",
-	name_configuration = {"c", "cpp", "rust"},
+	name_configuration = { "c", "cpp", "rust" },
 }
 
 M.config = {

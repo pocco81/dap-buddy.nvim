@@ -13,6 +13,8 @@ M.debuggers = {
 	["ccppr_vsc"] = { "c", "cpp", "cpp_matchup", "rust" },
 	["dart"] = { "dart" },
 	["ruby_vsc"] = { "ruby" },
+	["chrome"] = { "javascriptreact", "typescriptreact" },
+ 	["unity"] = { "unity" },
 	["codelldb"] = {"c", "cpp", "rust", "swift" },
 }
 

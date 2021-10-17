@@ -2,6 +2,10 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "go_delve/"
 
+M.details = {
+	dependencies = { "go" },
+}
+
 M.dap_info = {
 	name_adapter = "go",
 	name_configuration = "go",

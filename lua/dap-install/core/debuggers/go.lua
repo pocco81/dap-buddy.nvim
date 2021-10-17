@@ -3,6 +3,10 @@ local M = {}
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "go/"
 local fn = vim.fn
 
+M.details = {
+	dependencies = { "go", "npm" },
+}
+
 M.dap_info = {
 	name_adapter = "go",
 	name_configuration = "go",
@@ -33,7 +37,7 @@ M.installer = {
 		go install github.com/go-delve/delve/cmd/dlv
 		cd ..
 		git clone https://github.com/golang/vscode-go && cd vscode-go
-		sudo npm run compile
+		npm run compile
 	]],
 	uninstall = "simple",
 }
