@@ -15,7 +15,7 @@ M.config = {
 	adapters = {
 		type = "executable",
 		command = "node",
-		args = { dbg_path .. "Dart-Code/out/dist/debug.js", "flutter" },
+		args = { dbg_path .. "Dart-Code/out/dist/debug.js", "dart" },
 	},
 	configurations = {
 		{
