@@ -15,7 +15,7 @@ M.config = {
 	adapters = {
 		type = "executable",
 		command = "node",
-		args = { dbg_path .. "Dart-Code/out/dist/debug.js", "flutter" },
+		args = { dbg_path .. "Dart-Code/out/dist/debug.js", "dart" },
 	},
 	configurations = {
 		{
@@ -34,7 +34,7 @@ M.installer = {
 	before = "",
 	install = [[
 		git clone https://github.com/Dart-Code/Dart-Code
-		cd Dart-code && npx webpack --mode production
+		cd Dart-Code && npm install && npm run build
 	]],
 	uninstall = "simple",
 }
