@@ -59,5 +59,5 @@ M.installer = {
 	]], proxy, proxy),
 	uninstall = "simple",
 }
-print(vim.inspect(M.installer))
+
 return M
