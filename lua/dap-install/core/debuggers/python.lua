@@ -2,7 +2,6 @@ local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "python/"
 local proxy = require("dap-install.config.settings").options["proxy"]
-print(dbg_path)
 local fn = vim.fn
 local util_sys = require("dap-install.utils.sys")
 
