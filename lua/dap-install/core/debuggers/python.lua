@@ -1,6 +1,7 @@
 local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "python/"
+local proxy = require("dap-install.config.settings").options["proxy"]
 local fn = vim.fn
 local util_sys = require("dap-install.utils.sys")
 
@@ -47,10 +48,10 @@ M.config = {
 
 M.installer = {
 	before = "",
-	install = [[
+	install = string.format([[
 		python3 -m venv .
-		bin/python -m pip install debugpy
-	]],
+		bin/python -m pip install debugpy --proxy %s
+	]], proxy),
 	uninstall = "simple",
 }
 

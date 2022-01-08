@@ -1,6 +1,7 @@
 local M = {}
 
 local dbg_path = require("dap-install.config.settings").options["installation_path"] .. "ccppr_vsc/"
+local proxy = require("dap-install.config.settings").options["proxy"]
 
 M.details = {
 	dependencies = { "wget", "unzip", "make" },
@@ -45,8 +46,8 @@ M.config = {
 
 M.installer = {
 	before = "",
-	install = [[
-		wget $(curl -s https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest | grep browser_ | cut -d\" -f 4 | grep linux.vsix)
+	install = string.format([[
+		wget -e https_proxy=%s $(curl -s https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest -x %s| grep browser_ | cut -d\" -f 4 | grep linux.vsix)
 		mv cpptools-linux.vsix cpptools-linux.zip
 		unzip cpptools-linux.zip
 		chmod +x extension/debugAdapters/bin/OpenDebugAD7
@@ -55,7 +56,7 @@ M.installer = {
 		cd gdb-10.2/
 		./configure
 		make
-	]],
+	]], proxy, proxy),
 	uninstall = "simple",
 }
 
