@@ -37,6 +37,7 @@ M.installer = {
 		go install github.com/go-delve/delve/cmd/dlv
 		cd ..
 		git clone https://github.com/golang/vscode-go && cd vscode-go
+		npm install
 		npm run compile
 	]],
 	uninstall = "simple",
