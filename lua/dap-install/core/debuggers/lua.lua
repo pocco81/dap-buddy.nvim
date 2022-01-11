@@ -4,8 +4,8 @@ local dbg_path = require("dap-install.config.settings").options["installation_pa
 local fn = vim.fn
 
 M.dap_info = {
-	name_adapter = "lua",
-	name_configuration = "nlua",
+	name_adapter = "nlua",
+	name_configuration = "lua",
 }
 
 M.config = {
