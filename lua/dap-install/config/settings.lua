@@ -2,7 +2,7 @@ local settings = {}
 
 settings.options = {
 	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
-    proxy = false
+	proxy = "",
 }
 
 function settings.set_options(opts)
