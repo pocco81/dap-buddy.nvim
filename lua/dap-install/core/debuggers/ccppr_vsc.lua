@@ -44,10 +44,10 @@ M.config = {
 	},
 }
 
-M.installer = {
-	before = "",
-	install = string.format([[
-		wget -e https_proxy=%s $(curl -s https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest -x %s| grep browser_ | cut -d\" -f 4 | grep linux.vsix)
+local install_string
+if proxy == nil or proxy == "" then
+	install_string = [[
+		wget $(curl -s https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest | grep browser_ | cut -d\" -f 4 | grep linux.vsix)
 		mv cpptools-linux.vsix cpptools-linux.zip
 		unzip cpptools-linux.zip
 		chmod +x extension/debugAdapters/bin/OpenDebugAD7
@@ -56,7 +56,28 @@ M.installer = {
 		cd gdb-10.2/
 		./configure
 		make
-	]], proxy, proxy),
+	]]
+else
+	install_string = string.format(
+		[[
+      wget -e https_proxy=%s $(curl -s https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest -x %s| grep browser_ | cut -d\" -f 4 | grep linux.vsix)
+      mv cpptools-linux.vsix cpptools-linux.zip
+      unzip cpptools-linux.zip
+      chmod +x extension/debugAdapters/bin/OpenDebugAD7
+      cp extension/cppdbg.ad7Engine.json extension/debugAdapters/bin/nvim-dap.ad7Engine.json
+      wget https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz && tar -xvf gdb-10.2.tar.xz
+      cd gdb-10.2/
+      ./configure
+      make
+    ]],
+		proxy,
+		proxy
+	)
+end
+
+M.installer = {
+	before = "",
+	install = install_string,
 	uninstall = "simple",
 }
 

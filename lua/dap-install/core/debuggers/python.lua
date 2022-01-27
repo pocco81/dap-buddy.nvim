@@ -46,12 +46,25 @@ M.config = {
 	},
 }
 
+local install_string
+if proxy == nil or proxy == "" then
+	install_string = [[
+		python3 -m venv .
+		bin/python -m pip install debugpy
+  ]]
+else
+	install_string = string.format(
+		[[
+      python3 -m venv .
+      bin/python -m pip install debugpy --proxy %s
+    ]],
+		proxy
+	)
+end
+
 M.installer = {
 	before = "",
-	install = string.format([[
-		python3 -m venv .
-		bin/python -m pip install debugpy --proxy %s
-	]], proxy),
+	install = install_string,
 	uninstall = "simple",
 }
 
