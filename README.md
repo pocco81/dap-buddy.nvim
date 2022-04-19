@@ -19,7 +19,7 @@
 
 <p align="center">
 	Dap Buddy allows you to manage <a href="https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/">debuggers</a> provided by 
-<a href="https://github.com/mfussenegger/nvim-dap">nvim-dap</a>. It should ease out the process of installing, configuring and interacting with said debuggers. No troubleshooting needed. Just _plug and play_. At the moment the plugin has gone through some problems that could be traced back to the codebase itself; that's why I'm going to be doing a rewrite: faster, better, and without all the bugs it originally had.
+<a href="https://github.com/mfussenegger/nvim-dap">nvim-dap</a>. It should ease out the process of installing, configuring and interacting with said debuggers. No troubleshooting needed. Just <i>plug and play</i>. At the moment the plugin has gone through some problems that could be traced back to the codebase itself; that's why I'm going to be doing a rewrite: faster, better, and without all the bugs it originally had.
 	Stay tuned!
 </p>
 
