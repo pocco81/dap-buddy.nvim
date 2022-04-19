@@ -1,0 +1,2 @@
+Author:		Pocco81 <https://github.com/Pocco81>
+License:	GPL-3.0 License

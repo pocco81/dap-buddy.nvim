@@ -22,3 +22,44 @@
 <a href="https://github.com/mfussenegger/nvim-dap">nvim-dap</a>. It should ease out the process of installing, configuring and interacting with said debuggers. No troubleshooting needed. Just _plug and play_. At the moment the plugin has gone through some problems that could be traced back to the codebase itself; that's why I'm going to be doing a rewrite: faster, better, and without all the bugs it originally had.
 	Stay tuned!
 </p>
+
+&nbsp;
+
+### 🪴 Index
+
++ [Development](#-development)
++ [License](#-license)
+
+&nbsp;
+
+### 🛠️ Development
+
+1. Clone the repo
+2. Run this command:
+```bash
+make
+```
+> This will load nvim and append your local clone's git root path to a new sessions' runtime path
+
+3. After changing anything run (within nvim):
+```vimscript
+:luafile %
+```
+> Where `%` is the current file. It may be any other file's path.
+
+&nbsp;
+
+### 📜 License
+
+AbbrevMan.nvim is released under the GPL v3.0 license. It grants open-source permissions for users including:
+
+- The right to download and run the software freely
+- The right to make changes to the software as desired
+- The right to redistribute copies of the software
+- The right to modify and distribute copies of new versions of the software
+
+For more convoluted language, see the [LICENSE file](https://github.com/Pocco81/AbbrevMan.nvim/blob/main/LICENSE.md).
+
+&nbsp;
+
+---
