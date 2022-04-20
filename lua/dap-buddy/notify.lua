@@ -1,16 +1,20 @@
 local TITLE = "dap-buddy"
-local log_levels = vim.log.levels
+-- local log_levels =
+local platform = require("dap-buddy.platform")
 
-return function(msg, level)
+local M = {}
+
+function M.m(msg, level)
 	local has_notify_plugin = pcall(require, "notify")
-	if level then
-		if level == "w" then
-			level = log_levels.WARN
-		elseif level == "e" then
-			level = log_levels.ERROR
-		end
+
+	if level == "w" then
+		level = vim.log.levels.WARN
+	elseif level == "e" then
+		level = vim.log.levels.ERROR
+	else
+		level = vim.log.levels.INFO
 	end
-	level = log_levels.INFO
+
 	if has_notify_plugin then
 		vim.notify(msg, level, {
 			title = TITLE,
@@ -19,3 +23,15 @@ return function(msg, level)
 		vim.notify(("[%s]: %s"):format(TITLE, msg), level)
 	end
 end
+
+-- function M.raise_error(msg, code)
+--     if platform.is_headless then
+--         vim.schedule(function()
+--             -- We schedule the exit to make sure the call stack is exhausted
+--             os.exit(code or 1)
+--         end)
+--     end
+--     error(msg)
+-- end
+
+return M

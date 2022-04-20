@@ -51,7 +51,7 @@ make
 
 ### 📜 License
 
-dap-buddy.nvim is released under the GPL v3.0 license. It grants open-source permissions for users including:
+**dap-buddy.nvim** is released under the GPL v3.0 license. It grants open-source permissions for users including:
 
 - The right to download and run the software freely
 - The right to make changes to the software as desired

@@ -5,26 +5,30 @@ local notify = require("dap-buddy.notify")
 
 function M.get_install_completion(add_all)
 	local all = {}
-	if add_all == true then all = { all = true } end
+	if add_all == true then
+		all = { all = true }
+	end
 	return vim.tbl_keys(vim.tbl_extend("force", all, debuggers))
 end
 
 function M.get_uninstall_completion(add_all)
 	local all = {}
-	if add_all == true then all = { all = true } end
+	if add_all == true then
+		all = { all = true }
+	end
 	return vim.tbl_keys(vim.tbl_extend("force", all, debuggers))
 end
 
 function M.install(debugger, installation_type)
 	installation_type = installation_type or "normal"
-	notify("debugger -> " .. debugger)
-	notify("installation_type -> " .. installation_type)
+	notify.m("debugger -> " .. tostring(debugger))
+	notify.m("installation_type -> " .. installation_type)
 end
 
 function M.uninstall(debugger, uninstallation_type)
 	uninstallation_type = uninstallation_type or "normal"
-	notify("debugger -> " .. debugger)
-	notify("installation_type -> " .. uninstallation_type)
+	notify.m("debugger -> " .. debugger)
+	notify.m("installation_type -> " .. uninstallation_type)
 end
 
 function M.setup(custom_opts)

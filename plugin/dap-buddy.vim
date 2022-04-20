@@ -5,14 +5,25 @@ let s:save_cpo = &cpo " save user coptions
 set cpo&vim " reset them to defaults
 
 let s:no_confirm_flag = "--no-confirm"
+let s:TITLE = "[dap-buddy]: "
 
-function! s:ParseArgs(args)
+function! s:Notify(msg, level="i")
+	call luaeval("require'dap-buddy.notify'.m('" . a:msg . "', '" . a:level . "')")
+endfunction
+
+function! s:ParseArgs(args, flags=[])
     if len(a:args) == 0
-        return { 'sync': v:false, 'debuggers': [] }
+        return { 'flags': [], 'debuggers': [] }
     endif
-    let sync = a:args[0] == "--sync"
-    let debuggers = sync ? a:args[1:] : a:args
-    return { 'sync': sync, 'debuggers': debuggers }
+	let l:flags = []
+	for arg in a:flags
+		let l:pos = index(a:args, arg)
+		if pos >= 0
+			call remove(a:args, l:pos)
+			call add(l:flags, arg)
+		endif
+	endfor
+    return { 'flags': l:flags, 'debuggers': a:args }
 endfunction
 
 function! s:DBInstallCompletion(...) abort
@@ -24,13 +35,23 @@ function! s:DBUninstallCompletion(...) abort
 endfunction
 
 function! s:DBInstall(args) abort
-    let parsed_args = s:ParseArgs(a:args)
+    let parsed_args = s:ParseArgs(a:args, ['--sync', '--no-confirm'])
+	if empty(parsed_args.debuggers)
+		call s:Notify("no debuggers were provided", "w")
+		return
+	endif
 
-	if index(parsed_args.debuggers, "all") >= 0  " if "all" is in the debuggers
+	if index(parsed_args.debuggers, "all") >= 0
+		if index(parsed_args.flags, "--no-confirm") == -1
+			let l:confirmation = confirm(s:TITLE . "are you sure you want to install them all?", "&Yes\n&No", 2)
+			if l:confirmation != 1
+				return 0
+			endif
+		endif
 		let parsed_args.debuggers = luaeval("require'dap-buddy'.get_install_completion()")
 	endif
 
-    if parsed_args.sync
+    if index(parsed_args.flags, "--sync") >= 0
         call luaeval("require'dap-buddy'.install(_A, 'sync')", parsed_args.debuggers)
     else
 		for debugger_name in l:parsed_args.debuggers
@@ -40,8 +61,13 @@ function! s:DBInstall(args) abort
 endfunction
 
 function! s:DBUninstall(args) abort
-    let parsed_args = s:ParseArgs(a:args)
-    if parsed_args.sync
+    let parsed_args = s:ParseArgs(a:args, ['--sync'])
+	if empty(parsed_args.debuggers)
+		call s:Notify("no debuggers were provided", "w")
+		return
+	endif
+
+    if index(parsed_args.flags, '--sync') >= 0
         call luaeval("require'dap-buddy'.uninstall(_A, 'sync')", parsed_args.debuggers)
     else
         for debugger_name in l:parsed_args.debuggers
@@ -54,7 +80,7 @@ function! s:DBInfo() abort
     lua require'dap-buddy'.info_window.open()
 endfunction
 
-command! -bar -nargs=* -complete=custom,s:DBInstallCompletion		DBInstall call s:DBInstall([<f-args>])
+command! -bar -nargs=+ -complete=custom,s:DBInstallCompletion		DBInstall call s:DBInstall([<f-args>])
 command! -bar -nargs=+ -complete=custom,s:DBUninstallCompletion		DBUninstall call s:DBUninstall([<f-args>])
 command! DBInfo call s:DBInfo()
 
