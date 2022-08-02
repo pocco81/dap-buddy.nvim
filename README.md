@@ -1,5 +1,5 @@
 <p align="center">
-  <h2 align="center">🐞 dap-budy</h2>
+  <h2 align="center">🐞 dap-buddy</h2>
 </p>
 
 <p align="center">
