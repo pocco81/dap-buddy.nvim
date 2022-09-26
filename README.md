@@ -28,6 +28,7 @@
 ### 🪴 Index
 
 + [Development](#-development)
++ [Usage](#-usage)
 + [License](#-license)
 
 &nbsp;
@@ -48,6 +49,17 @@ make
 > Where `%` is the current file. It may be any other file's path.
 
 &nbsp;
+
+### ⚡ Usage
+- Install debug adapter
+
+    `:DBInstall <debug adapter>`
+- Uninstall debug adapter
+
+    `:DBUninstall <debug adapter>`
+- Open dab-buddy info window
+
+    `:DBInfo`
 
 ### 📜 License
 
